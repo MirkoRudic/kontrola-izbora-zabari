@@ -214,7 +214,7 @@ table.cmp td.df.bad,table.cmp td.df.bad small{color:var(--bad);font-weight:600}
       <p><b>Glasanje van BM:</b> tačka 13 zapisnika o radu biračkog odbora (RG-2), pročitano sa skenova. Za BM 33 zapisnik nije objavljen.</p>
       <p><b>Odbori 2026:</b> rešenja Opštinske izborne komisije Žabari od 14. 10. 2026, imena provereno na skenovima. Nova rešenja na RIK-u proveravaju se automatski svakog dana u 17 h do izbora; sve izmene su u Dnevniku promena.</p>
       <p><b>Rezultati 2026:</b> povlače se automatski sa RIK-a u izbornoj noći (25. 10. od 21 h, svakog sata do 6 h). Zapisnici se čuvaju kao kopije; ako RIK zameni zapisnik ili promeni rezultat, to se beleži u Dnevniku promena. „!” na mapi znači da je prema zapisniku BM oboreno.</p><p><b>Upisani 2026:</b> RIK objavljuje broj po BM tek sa rezultatima.</p>
-      <p><b>Glasovi:</b> SNS = lista 1, SPS = lista 2, „Naši” = 2023. Srbija protiv nasilja (lista 7), 2026. Studentska lista (lista 3). Sve liste: dugme „Detaljno”.</p>
+      <p><b>Glasovi:</b> SNS = lista 1, SPS = lista 2, „Naši” = 2023. Srbija protiv nasilja (lista 7), 2026. Studentska lista (lista 3); „Najjača ostala” = lista sa najviše glasova među ostalima, posebno za svaku godinu. Sve liste: dugme „Detaljno”.</p>
       <p><b>Mapa:</b> lokacije BM sa Google mape korisnika; granice naselja © OpenStreetMap saradnici.</p><p><b>Napravio:</b> Mirko &amp; Opus 5.5</p>
     </div></section>
  </div>
@@ -372,6 +372,16 @@ function diff(a,b,ba,bb,good){ // b=2026, a=2023; good: +1 rast je dobar, -1 ras
   const dv=(ba&&bb)?(b/bb-a/ba):dn; const cls=!good||!dv?'':(dv*good>0?'good':'bad');
   return `<td class="n df ${cls}">${sgn(dn)}${pp}</td>`}
 function row(label,a,b,ba,bb,sub,good){return `<tr><th scope="row">${label}${sub?`<small class="rs">${sub}</small>`:''}</th>${cell(a,ba)}${cell(b,bb)}${diff(a,b,ba,bb,good)}</tr>`}
+const shortL=t=>{t=String(t||'').replace(/\s+/g,' ').trim();return t.length>40?t.slice(0,38).trim()+'…':t};
+function topOther(arr,skip){let bi=-1,bv=-1;arr.forEach((v,i)=>{if(skip.includes(i+1))return;if((v||0)>bv){bv=v||0;bi=i}});return bi<0||bv<=0?null:{n:bi+1,v:bv}}
+function otherRow(y,z){ // najjača lista posle SNS, SPS i „Naših”
+  const a=topOther(y.lists.map(l=>l[1]),VOTES.map(v=>v[1]));
+  const b=z?topOther(z.lists||[],VOTES.map(v=>v[2])):null;
+  if(!a&&!b) return '';
+  const nm23=a?shortL(y.lists[a.n-1][0])+' (lista '+a.n+')':'';
+  const nm26=b?shortL((D.lists26[b.n-1]||[])[1])+' (lista '+b.n+')':'';
+  const sub=b?(nm23&&nm23!==nm26?'2026: '+nm26+' · 2023: '+nm23:nm26):'2023: '+nm23;
+  return row('Najjača ostala',a?a.v:null,b?b.v:null,y.valid,z&&z.valid,esc(sub),0)}
 function results(y,z,notes){
   const H=`<thead><tr><th></th><th class="n">2023</th><th class="n">2026</th><th class="n">Razlika</th></tr></thead>`;
   return `<div class="sec"><h3>Rezultati parlamentarnih izbora</h3><div class="tbl"><table class="res cmp">${H}<tbody>
@@ -384,6 +394,7 @@ function results(y,z,notes){
   <div class="small">% izašlih je od upisanih; ostali % od broja izašlih. Razlika: 2026 minus 2023, u broju i u procentnim poenima.${notes?' '+notes:''}</div></div>
   <div class="sec"><h3>Glasovi</h3><div class="tbl"><table class="res cmp">${H}<tbody>
     ${VOTES.map(([g,n23,n26,sub,gd])=>row(g,y.lists[n23-1][1],z?(z.lists[n26-1]??null):null,y.valid,z&&z.valid,sub,gd)).join('')}
+    ${otherRow(y,z)}
   </tbody></table></div>
   <div class="small">% od važećih listića.</div>
   <button class="more" id="more">Detaljno – ceo izborni listić →</button></div>`}
