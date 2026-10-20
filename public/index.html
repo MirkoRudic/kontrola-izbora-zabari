@@ -167,6 +167,8 @@ table.log .chip{margin-right:4px}
 .seg button[aria-checked=true]{background:var(--accent);color:var(--accent-ink);font-weight:600}
 .about p,#installhelp p{margin:8px 0;font-size:13px;line-height:1.5}
 .about{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:4px 14px}
+table.cmp td.df.good,table.cmp td.df.good small{color:var(--good);font-weight:600}
+table.cmp td.df.bad,table.cmp td.df.bad small{color:var(--bad);font-weight:600}
 </style>
 
 <div class="wrap">
@@ -323,27 +325,28 @@ function y26Total(){
   const t={voters:0,out:0,valid:0,invalid:0,outside:0,lists:Array(18).fill(0),done:rs.length,outsideKnown:0};
   rs.forEach(r=>{['voters','out','valid','invalid'].forEach(k=>t[k]+=r[k]||0);if(r.outside!=null){t.outside+=r.outside;t.outsideKnown++}(r.lists||[]).forEach((v,i)=>t.lists[i]+=v||0)});
   if(!t.outsideKnown) t.outside=null; return t}
-const VOTES=[['SNS',1,1,'lista 1'],['SPS',2,2,'lista 2'],['„Naši”',7,3,'2023: SPN (lista 7) · 2026: Studentska lista (lista 3)']];
+const VOTES=[['SNS',1,1,'lista 1',-1],['SPS',2,2,'lista 2',-1],['„Naši”',7,3,'2023: SPN (lista 7) · 2026: Studentska lista (lista 3)',1]];
 const sgn=(v,d)=>v==null?'':(v>0?'+':v<0?'−':'±')+Math.abs(v).toLocaleString('sr-Latn-RS',d!=null?{minimumFractionDigits:d,maximumFractionDigits:d}:{});
 function cell(n,base){return n==null?'<td class="n yr"><span class="na">—</span></td>':`<td class="n yr">${fmt(n)}${base?`<small>${pct(n,base)}</small>`:''}</td>`}
-function diff(a,b,ba,bb){ // b=2026, a=2023
+function diff(a,b,ba,bb,good){ // b=2026, a=2023; good: +1 rast je dobar, -1 rast je loš, 0 neutralno
   if(a==null||b==null) return '<td class="n df"><span class="na">—</span></td>';
   const dn=b-a; let pp='';
   if(ba!==undefined&&ba&&bb) pp=`<small>${sgn(100*b/bb-100*a/ba,1)} p.p.</small>`;
-  return `<td class="n df ${dn>0?'up':dn<0?'down':''}">${sgn(dn)}${pp}</td>`}
-function row(label,a,b,ba,bb,sub){return `<tr><th scope="row">${label}${sub?`<small class="rs">${sub}</small>`:''}</th>${cell(a,ba)}${cell(b,bb)}${diff(a,b,ba,bb)}</tr>`}
+  const dv=(ba&&bb)?(b/bb-a/ba):dn; const cls=!good||!dv?'':(dv*good>0?'good':'bad');
+  return `<td class="n df ${cls}">${sgn(dn)}${pp}</td>`}
+function row(label,a,b,ba,bb,sub,good){return `<tr><th scope="row">${label}${sub?`<small class="rs">${sub}</small>`:''}</th>${cell(a,ba)}${cell(b,bb)}${diff(a,b,ba,bb,good)}</tr>`}
 function results(y,z,notes){
   const H=`<thead><tr><th></th><th class="n">2023</th><th class="n">2026</th><th class="n">Razlika</th></tr></thead>`;
   return `<div class="sec"><h3>Rezultati parlamentarnih izbora</h3><div class="tbl"><table class="res cmp">${H}<tbody>
     ${row('Upisani birači',y.voters,z&&z.voters)}
-    ${row('Izašlo',y.out,z&&z.out,y.voters,z&&z.voters)}
+    ${row('Izašlo',y.out,z&&z.out,y.voters,z&&z.voters,'',1)}
     ${row('Glasanje van BM',y.outside,z?z.outside:null,y.out,z&&z.out)}
     ${row('Važeći listići',y.valid,z&&z.valid,y.out,z&&z.out)}
     ${row('Nevažeći listići',y.invalid,z&&z.invalid,y.out,z&&z.out)}
   </tbody></table></div>
   <div class="small">% izašlih je od upisanih; ostali % od broja izašlih. Razlika: 2026 minus 2023, u broju i u procentnim poenima.${notes?' '+notes:''}</div></div>
   <div class="sec"><h3>Glasovi</h3><div class="tbl"><table class="res cmp">${H}<tbody>
-    ${VOTES.map(([g,n23,n26,sub])=>row(g,y.lists[n23-1][1],z?(z.lists[n26-1]??null):null,y.valid,z&&z.valid,sub)).join('')}
+    ${VOTES.map(([g,n23,n26,sub,gd])=>row(g,y.lists[n23-1][1],z?(z.lists[n26-1]??null):null,y.valid,z&&z.valid,sub,gd)).join('')}
   </tbody></table></div>
   <div class="small">% od važećih listića.</div>
   <button class="more" id="more">Detaljno – ceo izborni listić →</button></div>`}
