@@ -393,8 +393,9 @@ function results(y,z,notes){
   </tbody></table></div>
   <div class="small">% izašlih je od upisanih; ostali % od broja izašlih. Razlika: 2026 minus 2023, u broju i u procentnim poenima.${notes?' '+notes:''}</div></div>
   <div class="sec"><h3>Glasovi</h3><div class="tbl"><table class="res cmp">${H}<tbody>
-    ${VOTES.map(([g,n23,n26,sub,gd])=>row(g,y.lists[n23-1][1],z?(z.lists[n26-1]??null):null,y.valid,z&&z.valid,sub,gd)).join('')}
+    ${VOTES.slice(0,2).map(([g,n23,n26,sub,gd])=>row(g,y.lists[n23-1][1],z?(z.lists[n26-1]??null):null,y.valid,z&&z.valid,sub,gd)).join('')}
     ${otherRow(y,z)}
+    ${VOTES.slice(2).map(([g,n23,n26,sub,gd])=>row(g,y.lists[n23-1][1],z?(z.lists[n26-1]??null):null,y.valid,z&&z.valid,sub,gd)).join('')}
   </tbody></table></div>
   <div class="small">% od važećih listića.</div>
   <button class="more" id="more">Detaljno – ceo izborni listić →</button></div>`}
