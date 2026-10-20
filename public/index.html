@@ -385,7 +385,7 @@ function header(no,place,name,back){
 const FLAGS={}; let DB=null, CANEDIT=false;
 const rawR=n=>R26['bm'+String(n).padStart(2,'0')]||{};
 function alertsOf(n){const f=FLAGS['bm'+String(n).padStart(2,'0')];const a=[];
-  LOG.filter(e=>e.bm===n).forEach(e=>a.push({k:'odbor',t:'Promena u biračkom odboru: '+e.text,at:e.at}));
+  LOG.filter(e=>e.bm===n&&e.alert!==false).forEach(e=>a.push({k:'odbor',t:'Promena u biračkom odboru: '+e.text,at:e.at}));
   (rawR(n).alerts||[]).forEach(x=>a.push({k:x.type,t:x.type==='zapisnik'?'Zapisnik na RIK-u je izmenjen (zamenjen novim fajlom)':x.type==='oboreno'?'BM oboreno: '+(x.detail||''):x.type==='primedbe'?'Primedbe u zapisniku: '+(x.detail||''):'RIK je promenio rezultat ('+String(x.detail||'').replace('RIK promenio: ','')+')',at:x.at}));
   return a}
 function updateMarks(){document.querySelectorAll('.mk').forEach(g=>{g.querySelector('.bang').style.display=alertsOf(+g.dataset.n).length?'':'none'})}
