@@ -1,0 +1,8 @@
+name = "kontrola-izbora-zabari"
+pages_build_output_dir = "./public"
+compatibility_date = "2025-09-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "kontrola-zabari-posete"
+database_id = "14dfcc09-9e39-4445-b510-f3c3001448d4"

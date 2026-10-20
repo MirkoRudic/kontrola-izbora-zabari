@@ -203,6 +203,7 @@ table.cmp td.df.bad,table.cmp td.df.bad small{color:var(--bad);font-weight:600}
     <p><b>Android (Chrome):</b> meni ⋮ gore desno → „Dodaj na početni ekran” (ili „Instaliraj aplikaciju”) → Dodaj.</p>
     <p class="artnote" hidden>Ovo radi na javnoj adresi aplikacije: <b>kontrola-izbora-zabari.pages.dev</b>.</p>
    </div></section>
+  <section class="sec" id="statsec" hidden><h3>Posete</h3><div class="small" id="stats">…</div></section>
   <section class="sec"><h3>O podacima</h3><div class="about">
       <p><b>Rezultati 2023:</b> zvanični podaci RIK-a po biračkom mestu (upisani, izašli, važeći, nevažeći, glasovi po listama). Zbir 37 BM se poklapa sa ukupnim brojem za opštinu (11.131 upisanih, 5.579 izašlih).</p>
       <p><b>Glasanje van BM:</b> tačka 13 zapisnika o radu biračkog odbora (RG-2), pročitano sa skenova. Za BM 33 zapisnik nije objavljen.</p>
@@ -483,6 +484,16 @@ else (async()=>{try{const db=await window.claude?.use?.('db');if(!db)return;DB=d
   db.collection('odbori').onSnapshot(snap=>{snap.docs.forEach(d=>{const v=d.data();if(d.id==='izmene'&&v)Object.assign(ODB,v.bm||{})});render._keep=true;render()},()=>{});
   db.collection('rez2026').onSnapshot(snap=>{snap.docs.forEach(d=>{const v=d.data();if(!v||d.id!=='all')return;META26=v.meta||null;Object.assign(R26,v.bm||{})});render._keep=true;render()},()=>{});
 }catch(e){}})();
+// ---------- brojač poseta (samo javni sajt) ----------
+function showStats(c){if(!c||c.posete==null)return;$('#statsec').hidden=false;
+  $('#stats').innerHTML=`Ukupno poseta: <b>${fmt(c.posete)}</b> · jedinstvenih posetilaca: <b>${fmt(c.jedinstvene)}</b>`}
+function loadStats(){if(!STATIC_DATA)return;fetch('/api/poseta',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(showStats).catch(()=>{})}
+if(STATIC_DATA){try{
+  let vid=null;try{vid=localStorage.getItem('kiz-vid')}catch(e){}
+  if(!vid){vid=(crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice(2)+Date.now()).replace(/[^a-z0-9]/gi,'').toLowerCase().slice(0,32);try{localStorage.setItem('kiz-vid',vid)}catch(e){}}
+  let counted=false;try{counted=sessionStorage.getItem('kiz-counted')==='1'}catch(e){}
+  if(!counted){fetch('/api/poseta',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({vid})}).then(r=>r.ok?r.json():null).then(c=>{showStats(c);try{sessionStorage.setItem('kiz-counted','1')}catch(e){}}).catch(()=>{})}
+}catch(e){}}
 // ---------- settings ----------
 const ROOT=document.documentElement;
 function applyTheme(t){if(t==='light'||t==='dark')ROOT.setAttribute('data-theme',t);else ROOT.removeAttribute('data-theme');
@@ -494,7 +505,7 @@ let deferredInstall=null;
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstall=e;$('#install').hidden=false});
 $('#install').onclick=async()=>{if(!deferredInstall)return;deferredInstall.prompt();try{await deferredInstall.userChoice}catch(e){}deferredInstall=null;$('#install').hidden=true};
 if(!STATIC_DATA) document.querySelector('.artnote').hidden=false;
-$('#gear').onclick=()=>{$('#settings').hidden=false;document.body.style.overflow='hidden';$('#settings').scrollTop=0};
+$('#gear').onclick=()=>{loadStats();$('#settings').hidden=false;document.body.style.overflow='hidden';$('#settings').scrollTop=0};
 $('#setback').onclick=()=>{$('#settings').hidden=true;document.body.style.overflow=''};
 if(STATIC_DATA&&'serviceWorker' in navigator){try{navigator.serviceWorker.register('sw.js').catch(()=>{})}catch(e){}}
 const m=/^#bm(\d+)$/.exec(location.hash); if(m&&S[m[1]-1]) renderStation(S[m[1]-1]); else renderOverview();
