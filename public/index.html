@@ -238,7 +238,7 @@ thead .ii svg,h3 .ii svg{width:14px;height:14px}
       <p><b>Glasanje van BM:</b> tačka 13 zapisnika o radu biračkog odbora (RG-2), pročitano sa skenova. Za BM 33 zapisnik nije objavljen.</p>
       <p><b>Odbori 2026:</b> rešenja Opštinske izborne komisije Žabari od 14. 10. 2026, imena provereno na skenovima. Nova rešenja na RIK-u proveravaju se automatski svakog dana u 17 h do izbora; sve izmene su u Dnevniku promena.</p>
       <p><b>Rezultati 2026:</b> povlače se automatski sa RIK-a u izbornoj noći (25. 10. od 21 h, svakog sata do 6 h). Zapisnici se čuvaju kao kopije; ako RIK zameni zapisnik ili promeni rezultat, to se beleži u Dnevniku promena. „!” na mapi znači da je prema zapisniku BM oboreno.</p><p><b>Upisani 2026:</b> RIK objavljuje broj po BM tek sa rezultatima.</p>
-      <p><b>Glasovi:</b> SNS = lista 1, SPS = lista 2, „Naši” = 2023. Srbija protiv nasilja (lista 7), 2026. Studentska lista (lista 3); „Najjača ostala” = lista sa najviše glasova među ostalima, posebno za svaku godinu. Sve liste: dugme „Detaljno”.</p>
+      <p><b>Glasovi:</b> SNS = lista 1, SPS = lista 2, „Naši” = 2023. Srbija protiv nasilja (lista 7), 2026. Studentska lista (lista 3). Sve liste: dugme „Detaljno”.</p>
       <p><b>Mapa:</b> lokacije BM sa Google mape korisnika; granice naselja © OpenStreetMap saradnici.</p><p><b>Napravio:</b> Mirko &amp; Opus 5.5</p>
     </div></section>
  </div>
@@ -427,7 +427,7 @@ function results(y,z,notes){
   <div class="foot1">* Razlika = 2026 minus 2023: gore u broju, dole u procentnim poenima (razlika dva procenta: 25,0 % → 24,9 % je −0,1 %).</div></div>
   <div class="sec"><h3><span class="nw">Glasovi${info(INFO_VOTES)}</span></h3><div class="tbl"><table class="res cmp">${H}<tbody>
     ${VOTES.slice(0,2).map(([g,n23,n26,sub,gd])=>row(g,y.lists[n23-1][1],z?(z.lists[n26-1]??null):null,y.valid,z&&z.valid,sub,gd)).join('')}
-    ${otherRow(y,z)}
+
     ${VOTES.slice(2).map(([g,n23,n26,sub,gd])=>row(g,y.lists[n23-1][1],z?(z.lists[n26-1]??null):null,y.valid,z&&z.valid,sub,gd)).join('')}
   </tbody></table></div>
   <button class="more" id="more">Detaljno – ceo izborni listić →</button></div>`}
