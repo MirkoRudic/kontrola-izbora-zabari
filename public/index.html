@@ -380,8 +380,8 @@ function otherRow(y,z){ // najjača lista posle SNS, SPS i „Naših”
   if(!a&&!b) return '';
   const nm23=a?shortL(y.lists[a.n-1][0])+' (lista '+a.n+')':'';
   const nm26=b?shortL((D.lists26[b.n-1]||[])[1])+' (lista '+b.n+')':'';
-  const sub=b?(nm23&&nm23!==nm26?'2026: '+nm26+' · 2023: '+nm23:nm26):'2023: '+nm23;
-  return row('Najjača ostala',a?a.v:null,b?b.v:null,y.valid,z&&z.valid,esc(sub),0)}
+  const sub=b?(nm23&&nm23!==nm26?'2026: '+nm26+'\n2023: '+nm23:'2026: '+nm26):'2023: '+nm23;
+  return row('Najjača ostala',a?a.v:null,b?b.v:null,y.valid,z&&z.valid,esc(sub).replace(/\n/g,'<br>'),0)}
 function results(y,z,notes){
   const H=`<thead><tr><th></th><th class="n">2023</th><th class="n">2026</th><th class="n">Razlika</th></tr></thead>`;
   return `<div class="sec"><h3>Rezultati parlamentarnih izbora</h3><div class="tbl"><table class="res cmp">${H}<tbody>
