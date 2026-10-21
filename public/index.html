@@ -174,6 +174,12 @@ table.cmp td.df.bad,table.cmp td.df.bad small{color:var(--bad);font-weight:600}
 .zoom{position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:4px}
 .zoom button{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:600 18px/1 var(--sans);cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.12)}
 .zoom button:hover{border-color:var(--accent);color:var(--accent)}
+.ln{text-align:right;font-family:var(--sans);font-size:10.5px!important}
+table.cmp tbody tr.subn{height:auto}
+tr.subn td{font-size:11.5px;color:var(--muted);padding:0 6px 8px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+tr.subn td{display:table-cell}
+tr.nob th,tr.nob td{border-bottom:0}
+.one{display:block!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 </style>
 
 <div class="wrap">
@@ -374,14 +380,13 @@ function diff(a,b,ba,bb,good){ // b=2026, a=2023; good: +1 rast je dobar, -1 ras
 function row(label,a,b,ba,bb,sub,good){return `<tr><th scope="row">${label}${sub?`<small class="rs">${sub}</small>`:''}</th>${cell(a,ba)}${cell(b,bb)}${diff(a,b,ba,bb,good)}</tr>`}
 const shortL=t=>{t=String(t||'').replace(/\s+/g,' ').trim();return t.length>40?t.slice(0,38).trim()+'…':t};
 function topOther(arr,skip){let bi=-1,bv=-1;arr.forEach((v,i)=>{if(skip.includes(i+1))return;if((v||0)>bv){bv=v||0;bi=i}});return bi<0||bv<=0?null:{n:bi+1,v:bv}}
+const S23=["SNS", "SPS", "Šešelj – SRS", "Zavetnici – Dveri", "NADA (Jovanović)", "SVM", "Srbija protiv nasilja", "Zukorlić – SPP", "SDA Sandžaka", "Zajedno za budućnost", "Narodna stranka", "DJB – SDS", "PDD (Kamberi)", "MI – Nestorović", "Srbija na zapadu", "Ruska stranka", "Č. Jovanović – LDP", "Albanska dem. alt."],S26=["SNS", "SPS", "Studentska lista", "Ljajić – Ljudski", "SVM", "Zukorlić – SPP", "Ruska stranka", "Autentična desnica", "Evropska Srbija", "SDA Sandžaka", "Karić – BK", "Liberalno zelena", "Bulić – Snaga", "Rusi i Srbi", "Ćale (Đurić)", "Gajić – Alternativa", "Albanska koalicija", "Majka Srbija"];
 function otherRow(y,z){ // najjača lista posle SNS, SPS i „Naših”
   const a=topOther(y.lists.map(l=>l[1]),VOTES.map(v=>v[1]));
   const b=z?topOther(z.lists||[],VOTES.map(v=>v[2])):null;
   if(!a&&!b) return '';
-  const nm23=a?shortL(y.lists[a.n-1][0])+' (lista '+a.n+')':'';
-  const nm26=b?shortL((D.lists26[b.n-1]||[])[1])+' (lista '+b.n+')':'';
-  const sub=b?(nm23&&nm23!==nm26?'2026: '+nm26+'\n2023: '+nm23:'2026: '+nm26):'2023: '+nm23;
-  return row('Najjača ostala',a?a.v:null,b?b.v:null,y.valid,z&&z.valid,esc(sub).replace(/\n/g,'<br>'),0)}
+  const lines=[b?`2026: ${b.n}. ${S26[b.n-1]}`:null,a?`2023: ${a.n}. ${S23[a.n-1]}`:null].filter(Boolean);
+  return row('Najjača ostala',a?a.v:null,b?b.v:null,y.valid,z&&z.valid,'',0).replace('<tr>','<tr class="nob">')+`<tr class="subn"><td colspan="4">${lines.map(esc).join(' · ')}</td></tr>`}
 function results(y,z,notes){
   const H=`<thead><tr><th></th><th class="n">2023</th><th class="n">2026</th><th class="n">Razlika</th></tr></thead>`;
   return `<div class="sec"><h3>Rezultati parlamentarnih izbora</h3><div class="tbl"><table class="res cmp">${H}<tbody>
