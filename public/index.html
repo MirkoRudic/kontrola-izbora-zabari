@@ -233,7 +233,17 @@ header h1{cursor:pointer}
 
 .ph1 .back{margin-left:6px;flex:none}.fl{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:13px;margin:4px 0 8px}
 
-html{scrollbar-gutter:stable}.panel{scrollbar-gutter:stable}
+.panel{scrollbar-gutter:stable;overflow-y:auto}
+#panel{scroll-margin-top:calc(var(--hh,60px) + 6px)}
+@media (min-width:961px){
+ body>.wrap{height:100vh;display:flex;flex-direction:column;padding-bottom:12px;box-sizing:border-box}
+ body>.wrap>.grid{flex:1;min-height:0;align-items:stretch}
+ .mapcard{display:flex;flex-direction:column;min-height:0}
+ .mapwrap{flex:1;min-height:0}
+ svg#map{height:100%!important;max-height:none!important}
+ .panel{position:static!important;max-height:none!important;height:100%;min-height:0;box-sizing:border-box}
+}
+@media (max-width:960px){svg#map{height:min(58vh,520px)}}
 .ph1{height:26px}.phm{height:78px;display:flex;flex-direction:column;justify-content:center;margin-top:4px}
 .phm .ph2{height:auto;margin-top:0}.ph3{font-size:13px;color:var(--muted);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .badge.nt{background:var(--soft);color:var(--ink);border:1px solid var(--line);min-width:16px;height:16px;font-size:10.5px}
@@ -313,7 +323,7 @@ for(const [n,g] of Object.entries(D.naselja)) html+=`<path class="naselje" data-
 html+=`<path class="outline" d="${pathOf(D.outline)}"/>`;
 // marker positions: spread stations that share coordinates
 const groups={};S.forEach(s=>{const k=s.lat.toFixed(4)+','+s.lon.toFixed(4);(groups[k]=groups[k]||[]).push(s)});
-const MOB=innerWidth<700, R=MOB?21:11;
+const MOB=innerWidth<700, R=MOB?21:15;
 Object.values(groups).forEach(g=>{const [x,y]=P([g[0].lon,g[0].lat]);g.forEach((s,i)=>{s._x=x+(i-(g.length-1)/2)*(2*R+2);s._y=y})});
 // nudge overlapping markers apart (simple relaxation)
 for(let it=0;it<60;it++)for(const a of S)for(const b of S){if(a===b)continue;const dx=b._x-a._x,dy=b._y-a._y,d=Math.hypot(dx,dy);if(d<2*R+2&&d>0){const m=(2*R+2-d)/2;a._x-=dx/d*m;a._y-=dy/d*m;b._x+=dx/d*m;b._y+=dy/d*m}}
@@ -330,17 +340,19 @@ const LBL=[...svg.querySelectorAll('.nlabel')].map(t=>[t,parseFloat(t.style.font
 const MKS=[...svg.querySelectorAll('.mk')].map(g=>{const c=g.querySelector(':scope>circle'),t=g.querySelector(':scope>text'),bc=g.querySelector('.bang circle'),bt=g.querySelector('.bang text');
   return {c,t,bc,bt,x:+c.getAttribute('cx'),y:+c.getAttribute('cy'),tf:parseFloat(t.style.fontSize)||10,bf:parseFloat(bt.style.fontSize)||9}});
 function applyVB(){const k=W/vb.w; svg.setAttribute('viewBox',`${vb.x.toFixed(1)} ${vb.y.toFixed(1)} ${vb.w.toFixed(1)} ${vb.h.toFixed(1)}`);
-  const kk=Math.max(1,Math.sqrt(k)); // markers grow a bit, but much less than the map
+  const r0=svg.getBoundingClientRect(),s0=Math.min(r0.width/VB0.w,r0.height/VB0.h)||1,g=11/(R*s0);
+  const kk=Math.max(1,Math.sqrt(k))*g; // markeri iste veličine na ekranu bez obzira na oblik mape
   MKS.forEach(m=>{const r=R*kk/k;m.c.setAttribute('r',r.toFixed(2));m.t.style.fontSize=(m.tf*kk/k)+'px';
     const bx=m.x+r*0.8,by=m.y-r*0.8;m.bc.setAttribute('cx',bx);m.bc.setAttribute('cy',by);m.bc.setAttribute('r',(r*0.62).toFixed(2));m.bt.setAttribute('x',bx);m.bt.setAttribute('y',by);m.bt.style.fontSize=(m.bf*kk/k)+'px';
     m.c.style.strokeWidth=(1.5/k*kk)+'px'});
-  LBL.forEach(([t,f])=>t.style.fontSize=(f*kk/k)+'px');
+  LBL.forEach(([t,f])=>t.style.fontSize=(Math.max(f,10/s0)*Math.max(1,Math.sqrt(k))/k)+'px');
   svg.querySelectorAll('.naselje,.outline').forEach(p=>p.style.strokeWidth=(p.classList.contains('outline')?1.6:1)/k+'px')}
+addEventListener('resize',()=>applyVB());addEventListener('load',()=>applyVB());requestAnimationFrame(()=>applyVB());
 function zoomAt(f,cx,cy){const nw=Math.min(VB0.w,Math.max(VB0.w/8,vb.w/f)),nh=nw*VB0.h/VB0.w;
   if(cx==null){cx=vb.x+vb.w/2;cy=vb.y+vb.h/2}
   vb={x:cx-(cx-vb.x)*nw/vb.w,y:cy-(cy-vb.y)*nh/vb.h,w:nw,h:nh};clampVB();applyVB()}
 function clampVB(){vb.x=Math.min(Math.max(vb.x,0),VB0.w-vb.w);vb.y=Math.min(Math.max(vb.y,0),VB0.h-vb.h)}
-const svgPt=(cx,cy)=>{const r=svg.getBoundingClientRect();return [vb.x+(cx-r.left)/r.width*vb.w, vb.y+(cy-r.top)/r.height*vb.h]};
+const svgPt=(cx,cy)=>{const m=svg.getScreenCTM();if(!m){const r=svg.getBoundingClientRect();return [vb.x+(cx-r.left)/r.width*vb.w, vb.y+(cy-r.top)/r.height*vb.h]}const p=new DOMPoint(cx,cy).matrixTransform(m.inverse());return [p.x,p.y]};
 $('#zin').onclick=()=>zoomAt(1.6);$('#zout').onclick=()=>zoomAt(1/1.6);$('#zreset').onclick=()=>{vb={...VB0};applyVB()};
 svg.addEventListener('wheel',e=>{if(!(e.ctrlKey||e.metaKey)){zoomHint();return}e.preventDefault();const [x,y]=svgPt(e.clientX,e.clientY);zoomAt(e.deltaY<0?1.15:1/1.15,x,y)},{passive:false});
 let _zh=null;function zoomHint(){const m=document.querySelector('.mapwrap');if(!m)return;let h=m.querySelector('.zhint');if(!h){h=document.createElement('div');h.className='zhint';h.textContent=(navigator.platform||'').includes('Mac')?'Za zumiranje drži ⌘ i okreni točkić, ili koristi + i −':'Za zumiranje drži Ctrl i okreni točkić, ili koristi + i −';m.appendChild(h)}h.classList.add('on');clearTimeout(_zh);_zh=setTimeout(()=>h.classList.remove('on'),1400)}
@@ -349,7 +361,7 @@ svg.addEventListener('pointerdown',e=>{ptrs.set(e.pointerId,[e.clientX,e.clientY
   if(ptrs.size===1)pan={x:e.clientX,y:e.clientY,vb:{...vb}};
   if(ptrs.size===2){const [a,b]=[...ptrs.values()];pinch={d:Math.hypot(a[0]-b[0],a[1]-b[1]),vb:{...vb},c:svgPt((a[0]+b[0])/2,(a[1]+b[1])/2)};pan=null}});
 svg.addEventListener('pointermove',e=>{if(!ptrs.has(e.pointerId))return;ptrs.set(e.pointerId,[e.clientX,e.clientY]);const r=svg.getBoundingClientRect();
-  if(pan){const dx=(e.clientX-pan.x)/r.width*vb.w,dy=(e.clientY-pan.y)/r.height*vb.h;if(Math.abs(e.clientX-pan.x)+Math.abs(e.clientY-pan.y)>6)moved=true;
+  if(pan){const sc=Math.min(r.width/pan.vb.w,r.height/pan.vb.h)||1,dx=(e.clientX-pan.x)/sc,dy=(e.clientY-pan.y)/sc;if(Math.abs(e.clientX-pan.x)+Math.abs(e.clientY-pan.y)>6)moved=true;
     if(moved&&vb.w<VB0.w){svg.setPointerCapture?.(e.pointerId);vb.x=pan.vb.x-dx;vb.y=pan.vb.y-dy;clampVB();applyVB()}}
   else if(pinch&&ptrs.size===2){moved=true;const [a,b]=[...ptrs.values()];const f=Math.hypot(a[0]-b[0],a[1]-b[1])/pinch.d;vb={...pinch.vb};zoomAt(f,pinch.c[0],pinch.c[1])}});
 const endPtr=e=>{ptrs.delete(e.pointerId);if(ptrs.size<2)pinch=null;if(!ptrs.size)pan=null};
@@ -361,7 +373,8 @@ document.querySelectorAll('.mk circle').forEach(c=>c.style.fill='var(--accent)')
 document.querySelectorAll('.mk text').forEach(t=>t.style.fill='var(--accent-ink)');
 
 // ---------- search (autocomplete) ----------
-const fold=t=>String(t??'').toLowerCase().replace(/đ/g,'dj').normalize('NFD').replace(/[̀-ͯ]/g,'');
+const CYR={'а':'a','б':'b','в':'v','г':'g','д':'d','ђ':'dj','е':'e','ж':'ž','з':'z','и':'i','ј':'j','к':'k','л':'l','љ':'lj','м':'m','н':'n','њ':'nj','о':'o','п':'p','р':'r','с':'s','т':'t','ћ':'ć','у':'u','ф':'f','х':'h','ц':'c','ч':'č','џ':'dž','ш':'š'};
+const fold=t=>String(t??'').toLowerCase().replace(/[а-џ]/g,c=>CYR[c]??c).replace(/đ/g,'dj').normalize('NFD').replace(/[̀-ͯ]/g,'');
 const IDX=[];
 S.forEach(s=>{
   IDX.push({t:'bm',n:s.n,label:`BM ${s.n} · ${s.place}`,sub:s.name26,key:fold(`bm ${s.n} ${s.n} ${s.place} ${s.name26}`)});
@@ -653,7 +666,7 @@ function render(){
   const keep=$('#panel').scrollTop;
   $('#panel').innerHTML=hd+`<div class="pbody">${body}</div>`;
   $('#panel').scrollTop=render._keep?keep:0; render._keep=false;
-  const bk=$('#back'); if(bk) bk.onclick=()=>{setSel(null);view='main';try{history.replaceState(null,'',location.pathname+location.search)}catch(e){};render()};
+  const bk=$('#back'); if(bk) bk.onclick=()=>{setSel(null);view='main';try{history.pushState(null,'',location.pathname+location.search)}catch(e){};render()};
   const toTop=()=>{if(matchMedia('(max-width:960px)').matches) $('#panel').scrollIntoView({block:'start'})};
   const mo=$('#more'); if(mo) mo.onclick=()=>{view='ballot';render();toTop()};
   const db=$('#dnb'); if(db) db.onclick=()=>{view='dn';render();toTop()};
@@ -671,7 +684,7 @@ function render(){
 document.addEventListener('click',e=>{if(TIPON&&!e.target.closest('#sigt')){TIPON=false;const t=$('#sigt');if(t)t.hidden=true}});
 function renderStation(s){
   if(sel!==s.n)view='main'; setSel(s.n); render();
-  try{history.replaceState(null,'','#bm'+s.n)}catch(e){}
+  try{if(location.hash!=='#bm'+s.n&&!renderStation._pop)history.pushState(null,'','#bm'+s.n)}catch(e){}
   if(matchMedia('(max-width:960px)').matches) $('#panel').scrollIntoView({behavior:'smooth',block:'start'});
 }
 function renderOverview(){setSel(null);render()}
@@ -704,11 +717,12 @@ let deferredInstall=null;
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstall=e;$('#install').hidden=false});
 $('#install').onclick=async()=>{if(!deferredInstall)return;deferredInstall.prompt();try{await deferredInstall.userChoice}catch(e){}deferredInstall=null;$('#install').hidden=true};
 if(!STATIC_DATA) document.querySelector('.artnote').hidden=false;
-$('header h1').onclick=()=>{view='main';try{history.replaceState(null,'',location.pathname+location.search)}catch(e){};renderOverview();vb={...VB0};applyVB();scrollTo({top:0,behavior:'smooth'})};
+$('header h1').onclick=()=>{view='main';try{if(location.hash)history.pushState(null,'',location.pathname+location.search)}catch(e){};renderOverview();vb={...VB0};applyVB();scrollTo({top:0,behavior:'smooth'})};
 const setHH=()=>document.documentElement.style.setProperty('--hh',$('header').offsetHeight+'px');setHH();addEventListener('resize',setHH);
 $('#gear').onclick=()=>{$('#settings').hidden=false;document.body.style.overflow='hidden';$('#settings').scrollTop=0};
 $('#setback').onclick=()=>{$('#settings').hidden=true;document.body.style.overflow=''};
 if(STATIC_DATA&&'serviceWorker' in navigator){try{navigator.serviceWorker.register('sw.js').catch(()=>{})}catch(e){}}
 const m=/^#bm(\d+)$/.exec(location.hash); if(m&&S[m[1]-1]) renderStation(S[m[1]-1]); else renderOverview();
+addEventListener('popstate',()=>{const m=/^#bm(\d+)$/.exec(location.hash);view='main';renderStation._pop=true;try{if(m&&S[m[1]-1])renderStation(S[m[1]-1]);else renderOverview()}finally{renderStation._pop=false}});
 </script>
 </body></html>
