@@ -514,7 +514,7 @@ const ODB={}; let LOG=[], LOGMETA=null;
 const atKey=t=>{const m=/(\d+)\.(\d+)\.\s*(\d+):(\d+)/.exec(t||'');return m?((+m[2])*1e6+(+m[1])*1e4+(+m[3])*100+(+m[4])):0};
 function logView(){
   const items=[];
-  LOG.forEach(e=>items.push({at:e.at,bm:e.bm,k:'Odbor',t:e.text,docs:e.docs||[]}));
+  LOG.forEach(e=>items.push({at:e.at,bm:e.bm,k:e.bm?'Odbor':'Odluka',t:e.text,docs:e.docs||[]}));
   S.forEach(s=>{const r=rawR(s.n),zh=r.zap_history||[];
     (r.alerts||[]).forEach(x=>items.push({at:x.at,bm:s.n,k:{zapisnik:'Zapisnik',oboreno:'Oboreno',primedbe:'Primedbe'}[x.type]||'Rezultat',t:x.type==='zapisnik'?'Zapisnik na RIK-u zamenjen novim fajlom':x.type==='oboreno'||x.type==='primedbe'?String(x.detail||''):'RIK promenio rezultat ('+String(x.detail||'').replace('RIK promenio: ','')+')',
       docs:x.type!=='rezultat'?zh.map((z,i)=>({title:'verzija '+(i+1)+((z.asset||z.file)?' (kopija)':''),link:zapUrl(z)})):[]}));
@@ -523,7 +523,7 @@ function logView(){
   return `<button class="back2" id="back2">← Nazad</button>
    <div class="sec"><h3>Dnevnik promena</h3>
    <div class="small" style="margin-bottom:8px">Izmene u biračkim odborima (provera rešenja na RIK-u svakog dana u 17 h do 25. 10.${LOGMETA&&LOGMETA.checked?`, poslednja ${esc(LOGMETA.checked)}`:''}), izmenjeni zapisnici i rezultati na RIK-u, oborena BM i primedbe iz zapisnika.</div>
-   ${items.length?`<div class="tbl"><table class="log"><thead><tr><th>Vreme</th><th>BM</th><th>Šta</th></tr></thead><tbody>${items.map(i=>`<tr><td class="n">${esc(i.at||'')}</td><td><a href="#bm${i.bm}" data-go="${i.bm}">BM ${i.bm}</a><div class="small">${esc(S[i.bm-1]?.place||'')}</div></td><td><span class="chip">${i.k}</span> ${esc(i.t)}${i.docs.length?`<div class="links" style="margin-top:4px">${i.docs.map(d=>link(d.link,esc(d.title))).join('')}</div>`:''}</td></tr>`).join('')}</tbody></table></div>`
+   ${items.length?`<div class="tbl"><table class="log"><thead><tr><th>Vreme</th><th>BM</th><th>Šta</th></tr></thead><tbody>${items.map(i=>`<tr><td class="n">${esc(i.at||'')}</td><td>${i.bm?`<a href="#bm${i.bm}" data-go="${i.bm}">BM ${i.bm}</a><div class="small">${esc(S[i.bm-1]?.place||'')}</div>`:'<span class="small">cela opština</span>'}</td><td><span class="chip">${i.k}</span> ${esc(i.t)}${i.docs.length?`<div class="links" style="margin-top:4px">${i.docs.map(d=>link(d.link,esc(d.title))).join('')}</div>`:''}</td></tr>`).join('')}</tbody></table></div>`
      :'<div class="small"><i>Za sada nema nijedne promene.</i></div>'}</div>`}
 function render(){
   const s=sel?S[sel-1]:null;
