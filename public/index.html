@@ -198,6 +198,11 @@ thead .ii svg,h3 .ii svg{width:14px;height:14px}
 .zhint.on{opacity:1}
 @media (min-width:961px){svg#map{max-height:calc(100vh - 210px)}}
 .foot1{font-size:12px;color:var(--muted);margin-top:4px}
+body>.wrap>header{position:sticky;top:0;z-index:30;background:var(--bg);margin:-14px -16px 12px;padding:14px 50px 10px 16px;border-bottom:1px solid var(--line)}
+body>.wrap>header .gear{top:10px;right:16px}
+header h1{cursor:pointer}
+.panel{top:calc(var(--hh,60px) + 10px);max-height:calc(100vh - var(--hh,60px) - 20px)}
+@media (max-width:960px){.panel{max-height:none}}
 </style>
 
 <div class="wrap">
@@ -582,6 +587,8 @@ let deferredInstall=null;
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstall=e;$('#install').hidden=false});
 $('#install').onclick=async()=>{if(!deferredInstall)return;deferredInstall.prompt();try{await deferredInstall.userChoice}catch(e){}deferredInstall=null;$('#install').hidden=true};
 if(!STATIC_DATA) document.querySelector('.artnote').hidden=false;
+$('header h1').onclick=()=>{view='main';try{history.replaceState(null,'',location.pathname+location.search)}catch(e){};renderOverview();vb={...VB0};applyVB();scrollTo({top:0,behavior:'smooth'})};
+const setHH=()=>document.documentElement.style.setProperty('--hh',$('header').offsetHeight+'px');setHH();addEventListener('resize',setHH);
 $('#gear').onclick=()=>{$('#settings').hidden=false;document.body.style.overflow='hidden';$('#settings').scrollTop=0};
 $('#setback').onclick=()=>{$('#settings').hidden=true;document.body.style.overflow=''};
 if(STATIC_DATA&&'serviceWorker' in navigator){try{navigator.serviceWorker.register('sw.js').catch(()=>{})}catch(e){}}
