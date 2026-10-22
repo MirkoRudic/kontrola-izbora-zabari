@@ -1,4 +1,4 @@
-<!doctype html><html lang="sr-Latn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kontrola izbora Žabari</title><meta name="description" content="Biračka mesta u opštini Žabari: rezultati 2023, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:type" content="website"><meta property="og:url" content="https://kontrola-izbora-zabari.pages.dev/"><meta property="og:title" content="Kontrola izbora – Žabari"><meta property="og:description" content="Biračka mesta, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta name="appv" content="20261022233721"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#960018"><meta name="apple-mobile-web-app-title" content="Kontrola Žabari"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Kontrola izbora Žabari</title>
+<!doctype html><html lang="sr-Latn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kontrola izbora Žabari</title><meta name="description" content="Biračka mesta u opštini Žabari: rezultati 2023, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:type" content="website"><meta property="og:url" content="https://kontrola-izbora-zabari.pages.dev/"><meta property="og:title" content="Kontrola izbora – Žabari"><meta property="og:description" content="Biračka mesta, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta name="appv" content="20261023003526"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#960018"><meta name="apple-mobile-web-app-title" content="Kontrola Žabari"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Kontrola izbora Žabari</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -311,7 +311,7 @@ table.kids td.nm{max-width:0;width:46%;overflow:hidden;text-overflow:ellipsis;wh
       <p><b>Glasanje van BM:</b> tačka 13 zapisnika o radu biračkog odbora (RG-2), pročitano sa skenova. Za BM 33 zapisnik nije objavljen.</p>
       <p><b>Odbori 2026:</b> rešenja Opštinske izborne komisije Žabari od 14. 10. 2026, imena provereno na skenovima. Nova rešenja na RIK-u proveravaju se automatski svakog dana u 17 h do izbora; sve izmene su u Dnevniku promena.</p>
       <p><b>Rezultati 2026:</b> povlače se automatski sa RIK-a u izbornoj noći (25. 10. od 21 h, svakog sata do 6 h). Zapisnici se čuvaju kao kopije; ako RIK zameni zapisnik ili promeni rezultat, to se beleži u Dnevniku promena. „!” na mapi znači da je prema zapisniku BM oboreno.</p><p><b>Upisani 2026:</b> RIK objavljuje broj po BM tek sa rezultatima.</p>
-      <p><b>Glasovi:</b> SNS = lista 1, SPS = lista 2, „Naši” = 2023. Srbija protiv nasilja (lista 7), 2026. Studentska lista (lista 3). Sve liste: dugme „Detaljno”.</p>
+      <p><b>Glasovi:</b> SNS = lista 1, SPS = lista 2, Studenti = Studentska lista (lista 3), nova lista koja 2023. nije postojala. Sve liste: dugme „Detaljno”.</p>
       <p><b>Mapa:</b> lokacije BM sa Google mape korisnika; granice naselja © OpenStreetMap saradnici.</p><p><b>Napravio:</b> Mirko &amp; Opus 5.5</p>
     </div></section>
  </div>
@@ -463,7 +463,7 @@ function y26Total(){
   const t={voters:0,out:0,valid:0,invalid:0,outside:0,lists:Array(18).fill(0),done:rs.length,outsideKnown:0};
   rs.forEach(r=>{['voters','out','valid','invalid'].forEach(k=>t[k]+=r[k]||0);if(r.outside!=null){t.outside+=r.outside;t.outsideKnown++}(r.lists||[]).forEach((v,i)=>t.lists[i]+=v||0)});
   if(!t.outsideKnown) t.outside=null; return t}
-const VOTES=[['SNS',1,1,'lista 1',-1],['SPS',2,2,'lista 2',-1],['„Naši”',7,3,'2023: SPN (lista 7) · 2026: Studentska lista (lista 3)',1]];
+const VOTES=[['SNS',1,1,'lista 1',-1],['SPS',2,2,'lista 2',-1],['Studenti',null,3,'lista 3',0]];
 const sgn=(v,d)=>v==null?'':(v>0?'+':v<0?'−':'±')+Math.abs(v).toLocaleString('sr-Latn-RS',d!=null?{minimumFractionDigits:d,maximumFractionDigits:d}:{});
 function cell(n,base){return n==null?'<td class="n yr"><span class="na">—</span></td>':`<td class="n yr">${fmt(n)}${base?`<small>${pct(n,base)}</small>`:''}</td>`}
 function diff(a,b,ba,bb,good){ // b=2026, a=2023; good: +1 rast je dobar, -1 rast je loš, 0 neutralno
@@ -476,7 +476,7 @@ function row(label,a,b,ba,bb,sub,good){return `<tr><th scope="row">${label}${sub
 const shortL=t=>{t=String(t||'').replace(/\s+/g,' ').trim();return t.length>40?t.slice(0,38).trim()+'…':t};
 function topOther(arr,skip){let bi=-1,bv=-1;arr.forEach((v,i)=>{if(skip.includes(i+1))return;if((v||0)>bv){bv=v||0;bi=i}});return bi<0||bv<=0?null:{n:bi+1,v:bv}}
 const S23=["SNS", "SPS", "Šešelj – SRS", "Zavetnici – Dveri", "NADA (Jovanović)", "SVM", "Srbija protiv nasilja", "Zukorlić – SPP", "SDA Sandžaka", "Zajedno za budućnost", "Narodna stranka", "DJB – SDS", "PDD (Kamberi)", "MI – Nestorović", "Srbija na zapadu", "Ruska stranka", "Č. Jovanović – LDP", "Albanska dem. alt."],S26=["SNS", "SPS", "Studentska lista", "Ljajić – Ljudski", "SVM", "Zukorlić – SPP", "Ruska stranka", "Autentična desnica", "Evropska Srbija", "SDA Sandžaka", "Karić – BK", "Liberalno zelena", "Bulić – Snaga", "Rusi i Srbi", "Ćale (Đurić)", "Gajić – Alternativa", "Albanska koalicija", "Majka Srbija"];
-function otherRow(y,z){ // najjača lista posle SNS, SPS i „Naših”
+function otherRow(y,z){ // najjača lista posle SNS, SPS i Studenata
   const a=topOther(y.lists.map(l=>l[1]),VOTES.map(v=>v[1]));
   const b=z?topOther(z.lists||[],VOTES.map(v=>v[2])):null;
   if(!a&&!b) return '';
@@ -502,9 +502,9 @@ function results(y,z,notes){
   </tbody></table></div></div>
   ${notes?`<div class="foot1">${notes}</div>`:''}
   <div class="sec"><h3>Glasovi</h3><div class="tbl"><table class="res cmp">${H}<tbody>
-    ${VOTES.slice(0,2).map(([g,n23,n26,sub,gd])=>row(g,y.lists[n23-1][1],z?(z.lists[n26-1]??null):null,y.valid,z&&z.valid,sub,gd)).join('')}
+    ${VOTES.slice(0,2).map(([g,n23,n26,sub,gd])=>row(g,n23==null?null:y.lists[n23-1][1],z?(z.lists[n26-1]??null):null,y.valid,z&&z.valid,sub,gd)).join('')}
 
-    ${VOTES.slice(2).map(([g,n23,n26,sub,gd])=>row(g,y.lists[n23-1][1],z?(z.lists[n26-1]??null):null,y.valid,z&&z.valid,sub,gd)).join('')}
+    ${VOTES.slice(2).map(([g,n23,n26,sub,gd])=>row(g,n23==null?null:y.lists[n23-1][1],z?(z.lists[n26-1]??null):null,y.valid,z&&z.valid,sub,gd)).join('')}
   </tbody></table></div>
   <div style="display:flex;gap:8px"><button class="more" id="more">DETALJNO</button>${dnBtn}</div></div>`}
 function status26(){
