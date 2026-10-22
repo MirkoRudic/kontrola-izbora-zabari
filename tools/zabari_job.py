@@ -60,6 +60,7 @@ def fetch(prevf,ROUND,limit):
                     os.makedirs(W+"/img",exist_ok=True); subprocess.run(["pdftoppm","-r","110","-gray","-png","-f","1","-l","2",W+"/upload/"+fn,W+"/img/"+fn[:-4]])
                     zh.append(dict(link=R+link,sha=sha,file=fn,asset=None,at=t)); uploads.append(fn)
                     if last: alerts.append(dict(type="zapisnik",at=t,detail="Zapisnik na RIK-u je zamenjen novim fajlom"))
+        rec["at"]=old.get("at") or (t if rec.get("processed") else None)
         rec["zap_history"]=zh; rec["alerts"]=alerts; rec["status"]=old.get("status")
         bm[k]=rec
     meta=dict(checked=t,processed=sum(1 for v in bm.values() if v["processed"]),stations=len(st))
