@@ -1,2 +1,8 @@
+/
+  Cache-Control: no-cache
+/index.html
+  Cache-Control: no-cache
+/version.txt
+  Cache-Control: no-store
 /data/*
   Cache-Control: no-store

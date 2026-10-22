@@ -1,4 +1,4 @@
-<!doctype html><html lang="sr-Latn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kontrola izbora Žabari</title><meta name="description" content="Biračka mesta u opštini Žabari: rezultati 2023, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:type" content="website"><meta property="og:url" content="https://kontrola-izbora-zabari.pages.dev/"><meta property="og:title" content="Kontrola izbora – Žabari"><meta property="og:description" content="Biračka mesta, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#960018"><meta name="apple-mobile-web-app-title" content="Kontrola Žabari"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Kontrola izbora Žabari</title>
+<!doctype html><html lang="sr-Latn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kontrola izbora Žabari</title><meta name="description" content="Biračka mesta u opštini Žabari: rezultati 2023, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:type" content="website"><meta property="og:url" content="https://kontrola-izbora-zabari.pages.dev/"><meta property="og:title" content="Kontrola izbora – Žabari"><meta property="og:description" content="Biračka mesta, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta name="appv" content="20261022205557"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#960018"><meta name="apple-mobile-web-app-title" content="Kontrola Žabari"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Kontrola izbora Žabari</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -236,6 +236,7 @@ header h1{cursor:pointer}
 .panel{scrollbar-gutter:stable;overflow-y:auto}
 #panel{scroll-margin-top:calc(var(--hh,60px) + 6px)}
 @media (min-width:961px){
+ html,body{overflow:hidden;height:100%}
  body>.wrap{height:100vh;display:flex;flex-direction:column;padding-bottom:12px;box-sizing:border-box}
  body>.wrap>.grid{flex:1;min-height:0;align-items:stretch}
  .mapcard{display:flex;flex-direction:column;min-height:0}
@@ -699,6 +700,15 @@ else (async()=>{try{const db=await window.claude?.use?.('db');if(!db)return;DB=d
   db.collection('odbori').onSnapshot(snap=>{snap.docs.forEach(d=>{const v=d.data();if(d.id==='izmene'&&v)Object.assign(ODB,v.bm||{})});render._keep=true;render()},()=>{});
   db.collection('rez2026').onSnapshot(snap=>{snap.docs.forEach(d=>{const v=d.data();if(!v||d.id!=='all')return;META26=v.meta||null;Object.assign(R26,v.bm||{})});render._keep=true;render()},()=>{});
 }catch(e){}})();
+
+// ---------- nova verzija aplikacije ----------
+(function(){const m=document.querySelector('meta[name=appv]');if(!m||!location.protocol.startsWith('http'))return;const v0=m.content;
+  const chk=async()=>{try{const r=await fetch('version.txt?t='+Date.now(),{cache:'no-store'});if(!r.ok)return;const v=(await r.text()).trim();if(!v||v===v0)return;
+    if(document.hidden){location.reload();return}
+    if(document.getElementById('newv'))return;const b=document.createElement('button');b.id='newv';b.textContent='Nova verzija aplikacije · Osveži';
+    b.style.cssText='position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:100;background:var(--accent);color:var(--accent-ink);border:0;border-radius:20px;padding:9px 16px;font:600 13px var(--sans);box-shadow:0 6px 18px rgba(0,0,0,.3);cursor:pointer';
+    b.onclick=()=>location.reload();document.body.appendChild(b)}catch(e){}};
+  setInterval(chk,120000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)chk()})})();
 // ---------- brojač poseta (samo javni sajt) ----------
 if(STATIC_DATA){try{
   let vid=null;try{vid=localStorage.getItem('kiz-vid')}catch(e){}
