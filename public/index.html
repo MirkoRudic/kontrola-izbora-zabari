@@ -1,4 +1,4 @@
-<!doctype html><html lang="sr-Latn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kontrola izbora Žabari</title><meta name="description" content="Biračka mesta u opštini Žabari: rezultati 2023, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:type" content="website"><meta property="og:url" content="https://kontrola-izbora-zabari.pages.dev/"><meta property="og:title" content="Kontrola izbora – Žabari"><meta property="og:description" content="Biračka mesta, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta name="appv" content="20261023212825"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#960018"><meta name="apple-mobile-web-app-title" content="Kontrola Žabari"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Kontrola izbora Žabari</title>
+<!doctype html><html lang="sr-Latn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kontrola izbora Žabari</title><meta name="description" content="Biračka mesta u opštini Žabari: rezultati 2023, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:type" content="website"><meta property="og:url" content="https://kontrola-izbora-zabari.pages.dev/"><meta property="og:title" content="Kontrola izbora – Žabari"><meta property="og:description" content="Biračka mesta, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta name="appv" content="20261023213833"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#960018"><meta name="apple-mobile-web-app-title" content="Kontrola Žabari"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Kontrola izbora Žabari</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -324,6 +324,8 @@ footer.ft{display:flex!important;flex-direction:column;align-items:center;justif
 .mapcard footer.ftd{flex-direction:column!important;align-items:center!important;justify-content:center!important}
 
 /*ui9*/.cntcol .ccw>.ib{top:4px!important;right:4px!important}.cntcol .pgc .cc{padding-top:16px!important}
+
+.i26{display:inline-block;font:600 10.5px var(--sans);color:var(--motto);border:1px solid currentColor;border-radius:8px;padding:0 5px;margin-left:4px;vertical-align:1px;white-space:nowrap}
 </style>
 
 <div class="wrap">
@@ -599,6 +601,25 @@ function ballot(y,z,extra){_SHY=y;_SHZ=z;
 
 const roleLbl=r=>esc(r).replace(/^zamenik /,'zamenik<br>').replace(/(\d\.) /,'$1&nbsp;');
 function boardOf(s){const o=ODB['bm'+String(s.n).padStart(2,'0')];return o?{...s.board,...o}:s.board}
+let OT='2026',O23;
+function odbTab(f26,n){const seg=`<div class="tabs ptt" role="tablist"><button role="tab" data-ot="2026" aria-selected="${OT==='2026'}">2026</button><button role="tab" data-ot="2023" aria-selected="${OT==='2023'}">2023</button></div>`;
+  if(OT==='2026')return seg+f26();
+  if(O23===undefined){O23=null;fetch('data/odbori23.json?t='+Date.now()).then(r=>r.ok?r.json():null).catch(()=>null).then(d=>{O23=d||false;render._keep=true;render()});return seg+'<div class="small" style="padding:12px 0">Učitavam…</div>'}
+  if(!O23)return seg+'<div class="small" style="padding:12px 0">Sastav odbora 2023. još nije objavljen.</div>';
+  return seg+'<div class="small" style="margin:4px 0 8px">Konačan sastav biračkih odbora na parlamentarnim izborima 17. 12. 2023. (osnovna rešenja i sve izmene sa RIK-a). Oznaka <b class="i26">i 2026</b> = ista osoba je u odboru i 2026.</div>'+(n?board23(n):over23())}
+const n26=()=>{if(n26.m)return n26.m;const m={};S.forEach(s=>{const b=boardOf(s);(b.stalni||[]).forEach(x=>x.name&&(m[fold(x.name)]=(m[fold(x.name)]||[]).concat(s.n)));(b.prosireni||[]).forEach(x=>['member','deputy'].forEach(f=>x[f]&&(m[fold(x[f])]=(m[fold(x[f])]||[]).concat(s.n))))});return n26.m=m};
+function tag26(name,n){const b=name&&n26()[fold(name)];return b?` <span class="i26" title="2026: BM ${b.join(', ')}">i 2026${b.includes(n)?'':' (BM '+b.join(', ')+')'}</span>`:''}
+function board23(n){const s=S[n-1],b=(O23.bm||{})[String(s.n23||n)];if(!b)return '<div class="small">Nema podataka za ovo BM.</div>';
+  const nm=(x)=>x?esc(x)+tag26(x,n):'<span class="na">nije imenovan</span>';
+  let h=`<div class="sec"><h3>Birački odbor 2023 – stalni sastav</h3><div class="tbl"><table><thead><tr><th>Funkcija</th><th>Ime</th><th>Predlagač</th></tr></thead><tbody>`+(b.stalni||[]).map(x=>`<tr><td>${roleLbl(x.role)}</td><td>${nm(x.name)}</td><td class="small">${esc(x.by||'')}</td></tr>`).join('')+'</tbody></table></div></div>';
+  const pp=(b.prosireni||[]).filter(x=>x.member||x.deputy);
+  h+=`<div class="sec"><h3>Prošireni sastav 2023 (${pp.length} lista)</h3><div class="tbl"><table><thead><tr><th>Lista</th><th>Član</th><th>Zamenik</th></tr></thead><tbody>`+pp.map(x=>`<tr><td class="small">${esc(x.list||'')}</td><td>${nm(x.member)}</td><td>${nm(x.deputy)}</td></tr>`).join('')+'</tbody></table></div></div>';
+  if((b.istorija||[]).length)h+=`<div class="sec"><h3>Rešenja 2023</h3>${b.istorija.map(e=>`<div class="it"><div class="d1">${esc(e.datum||'')}</div><div class="d3">${esc(e.opis||'')}</div>${e.l?`<div class="d4">${link(e.l,'Rešenje (PDF)')}</div>`:''}</div>`).join('')}</div>`;
+  if(b.napomena)h+=`<div class="note">${esc(b.napomena)}</div>`;return h}
+function over23(){let both=0,tot=0;const rows=S.map(s=>{const b=(O23.bm||{})[String(s.n23||s.n)]||{},pr=(b.stalni||[]).find(x=>x.role==='predsednik')||{},pr26=(boardOf(s).stalni||[]).find(x=>x.role==='predsednik')||{};
+  const ppl=[...(b.stalni||[]).map(x=>x.name),...(b.prosireni||[]).flatMap(x=>[x.member,x.deputy])].filter(Boolean);const ist=ppl.filter(x=>n26()[fold(x)]).length;both+=ist;tot+=ppl.length;
+  return `<tr data-go="${s.n}" style="cursor:pointer"><td><b>${s.n}</b> ${esc(s.place)}</td><td>${esc(pr.name||'—')}<div class="small">${esc(pr.by||'')}</div></td><td>${esc(pr26.name||'—')}${pr.name&&pr26.name&&fold(pr.name)===fold(pr26.name)?' <span class="i26">isti</span>':''}</td><td class="n">${ist}/${ppl.length}</td></tr>`}).join('');
+  return `<div class="sec"><h3>Odbori 2023 i 2026</h3><div class="small" style="margin-bottom:6px">Od ${tot} mesta u odborima 2023, ${both} zauzimaju osobe koje su u odborima i 2026.</div><div class="tbl"><table><thead><tr><th>BM</th><th>Predsednik 2023</th><th>Predsednik 2026</th><th class="n">Ista lica</th></tr></thead><tbody>${rows}</tbody></table></div></div>`}
 function boardView(s){
   const b=boardOf(s); const G=Object.fromEntries(D.groups); const LL=Object.fromEntries(D.lists26);
   const nm=x=>x?esc(x):'<span class="na">nije imenovan</span>';
@@ -713,7 +734,9 @@ function primTab(nsF){const seg=`<div class="tabs ptt" role="tablist"><button ro
   if(PT==='2026')return seg+primView(nsF());
   if(P23===undefined){P23=null;fetch('data/primedbe23.json?t='+Date.now()).then(r=>r.ok?r.json():null).catch(()=>null).then(d=>{P23=d||false;render._keep=true;render()});return seg+'<div class="small" style="padding:12px 0">Učitavam…</div>'}
   if(!P23)return seg+'<div class="small" style="padding:12px 0">Primedbe iz zapisnika 2023. još nisu objavljene.</div>';
-  const sv=[OBL,ZAP];OBL=P23;ZAP=null;try{return seg+'<div class="small" style="margin:4px 0 8px">Primedbe članova odbora upisane u zapisnike sa parlamentarnih izbora 17. 12. 2023.</div>'+primView(nsF())}finally{OBL=sv[0];ZAP=sv[1]}}
+  const sv=[OBL,ZAP];OBL=P23;ZAP=null;try{const ns=nsF(),R=ns.map(n=>[n,recOf(P23,n)]).filter(x=>x[1]);const np=R.filter(x=>x[1].p&&x[1].p.length).length;
+    const nap=R.filter(x=>x[1].nap).map(([n,r])=>`<div class="it"><div class="d1">${ns.length===1?'BM '+n:`<a href="#bm${n}" data-go="${n}">BM ${n}</a>`} · Žabari</div><div class="d3">${esc(r.nap)}</div>${r.link?`<div class="d4">${link(r.link,'Zapisnik 2023 (PDF)')}</div>`:''}</div>`).join('');
+    return seg+`<div class="small" style="margin:4px 0 8px">Pročitani zapisnici sa ${R.length===1?'ovog BM':'svih '+R.length+' BM'} sa parlamentarnih izbora 17. 12. 2023. Primedbe članova odbora: ${np?np:'nema'}.</div>`+primView(ns)+(nap?`<div class="sec"><h3>Uočeno u zapisnicima 2023</h3><div class="small" style="margin-bottom:6px">Nisu primedbe članova odbora, već ono što se vidi u samom zapisniku (ispravke, nepotpisani članovi, neslaganja brojeva).</div>${nap}</div>`:'')}finally{OBL=sv[0];ZAP=sv[1]}}
 function primView(ns){
   const one=ns.length===1;
   const neIt=ns.map(n=>{const g=rawSig(n);if(!g.ne.length)return null;const o=oblR(n),r=zapR(n),at=(o&&o.at)||(r&&r.at)||'';
@@ -819,13 +842,13 @@ function render(){
   let body,hd;
   if(s){const g=sigOf(s.n);hd=header(s.n,s.place,s.name26,true,sigHtml(g),ptabs(g.p+(g.ne.length?1:0),nIzm(s.n)),s.address||s.adr||'');
     if(tab==='prim') body=primTab(()=>[s.n]);
-    else if(tab==='odb') body=view==='bib'?bibView(s.n):provLine()+boardView(s)+latestDoc(s.n)+bibBtn;
+    else if(tab==='odb') body=view==='bib'?bibView(s.n):odbTab(()=>provLine()+boardView(s)+latestDoc(s.n)+bibBtn,s.n);
     else if(view==='dn') body=dnView(dnBM(zbm(s.n),zapR(s.n)).map(e=>({...e,l2:`BM ${s.n} · ${esc(s.place)}`})));
     else if(view==='ballot') body=ballot(y,z,`<div class="sec"><h3>Zapisnici</h3><div class="links col">${zap26(s.n)}${link(s.y2023.doc,s.y2023.no_rg2?'Dokument 2023 na RIK-u (RG-11)':'Zapisnik 2023 (PDF, RIK)')}</div>${s.y2023.note&&!s.y2023.no_rg2?`<div class="small" style="margin-top:6px">Napomena iz zapisnika 2023: ${esc(s.y2023.note)}</div>`:''}</div>`);
     else body=results(y,z,notes);
   } else {const c=cntAll();hd=header(null,'Opština Žabari','Zbir svih '+S.length+' biračkih mesta',false,'',ptabs(c.p+c.e,nIzm(null)));
     if(tab==='prim') body=primTab(()=>S.map(s=>s.n));
-    else if(tab==='odb') body=view==='bib'?bibView(null):provLine()+coverage()+bibBtn;
+    else if(tab==='odb') body=view==='bib'?bibView(null):odbTab(()=>provLine()+coverage()+bibBtn,null);
     else if(view==='dn') body=dnView(S.flatMap(st=>dnBM(zbm(st.n),null).filter(e=>!/^(Rezultati preuzeti|Zapisnik objavljen)/.test(e.t)).map(e=>({...e,l2:`<a href="#bm${st.n}" data-go="${st.n}">BM ${st.n}</a> · ${esc(st.place)}`}))));
     else if(view==='ballot') body=ballot(y,z);
     else body=results(y,z,notes)+bmList();
@@ -853,6 +876,8 @@ function render(){
   const bs=$('#bsort'); if(bs) bs.onclick=()=>{bsort=!bsort;render._keep=true;render()};
   document.querySelectorAll('.tabs button[data-b]').forEach(b=>b.onclick=()=>{btab=b.dataset.b;render._keep=true;render()});
   document.querySelectorAll('.tabs button[data-pt]').forEach(b=>b.onclick=()=>{PT=b.dataset.pt;render._keep=true;render()});
+  document.querySelectorAll('.tabs button[data-ot]').forEach(b=>b.onclick=()=>{OT=b.dataset.ot;render._keep=true;render()});
+  document.querySelectorAll('tr[data-go]').forEach(t=>t.onclick=()=>renderStation(S[+t.dataset.go-1]));
 }
 document.addEventListener('click',e=>{if(TIPON&&!e.target.closest('#sigt')){TIPON=false;const t=$('#sigt');if(t)t.hidden=true}});
 function renderStation(s){
