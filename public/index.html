@@ -1,4 +1,4 @@
-<!doctype html><html lang="sr-Latn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kontrola izbora Žabari</title><meta name="description" content="Biračka mesta u opštini Žabari: rezultati 2023, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:type" content="website"><meta property="og:url" content="https://kontrola-izbora-zabari.pages.dev/"><meta property="og:title" content="Kontrola izbora – Žabari"><meta property="og:description" content="Biračka mesta, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta name="appv" content="20261024095841"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#960018"><meta name="apple-mobile-web-app-title" content="Kontrola Žabari"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Kontrola izbora Žabari</title>
+<!doctype html><html lang="sr-Latn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kontrola izbora Žabari</title><meta name="description" content="Biračka mesta u opštini Žabari: rezultati 2023, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:type" content="website"><meta property="og:url" content="https://kontrola-izbora-zabari.pages.dev/"><meta property="og:title" content="Kontrola izbora – Žabari"><meta property="og:description" content="Biračka mesta, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta name="appv" content="20261024101913"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#960018"><meta name="apple-mobile-web-app-title" content="Kontrola Žabari"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Kontrola izbora Žabari</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -526,15 +526,17 @@ document.querySelectorAll('.mk text').forEach(t=>t.style.fill='var(--accent-ink)
 const CYR={'а':'a','б':'b','в':'v','г':'g','д':'d','ђ':'dj','е':'e','ж':'ž','з':'z','и':'i','ј':'j','к':'k','л':'l','љ':'lj','м':'m','н':'n','њ':'nj','о':'o','п':'p','р':'r','с':'s','т':'t','ћ':'ć','у':'u','ф':'f','х':'h','ц':'c','ч':'č','џ':'dž','ш':'š'};
 const fold=t=>String(t??'').toLowerCase().replace(/[а-џ]/g,c=>CYR[c]??c).replace(/đ/g,'dj').normalize('NFD').replace(/[̀-ͯ]/g,'');
 const IDX=[];
+function buildIdx(){IDX.length=0;const LL=Object.fromEntries(D.lists26);
 S.forEach(s=>{
   IDX.push({t:'bm',n:s.n,label:`BM ${s.n} · ${s.place}`,sub:s.name26,key:fold(`bm ${s.n} ${s.n} ${s.place} ${s.name26}`)});
-  const LL=Object.fromEntries(D.lists26);
-  s.board.stalni.forEach(x=>x.name&&IDX.push({t:'p',n:s.n,label:x.name,sub:`BM ${s.n} ${s.place} · ${x.role}, stalni sastav`,key:fold(x.name)}));
-  s.board.prosireni.forEach(x=>{
+  let bd=s.board;try{bd=boardOf(s)||s.board}catch(e){}
+  (bd.stalni||[]).forEach(x=>x.name&&IDX.push({t:'p',n:s.n,label:x.name,sub:`BM ${s.n} ${s.place} · ${x.role}, stalni sastav`,key:fold(x.name)}));
+  (bd.prosireni||[]).forEach(x=>{
     if(x.member)IDX.push({t:'p',n:s.n,label:x.member,sub:`BM ${s.n} ${s.place} · član, ${LL[x.key]||x.list}`,key:fold(x.member)});
     if(x.deputy)IDX.push({t:'p',n:s.n,label:x.deputy,sub:`BM ${s.n} ${s.place} · zamenik, ${LL[x.key]||x.list}`,key:fold(x.deputy)});
   });
-});
+});}
+buildIdx();
 const q=$('#q'), box=$('#sugg'); let hits=[], act=-1;
 function search(v){
   const f=fold(v).trim(); if(!f) return [];
@@ -966,11 +968,11 @@ document.querySelectorAll('.mk').forEach(g=>{const go=()=>renderStation(S[g.data
 (async()=>{try{const u=await window.claude?.use?.('user');CANEDIT=!!(u&&u.canEdit&&u.canEdit());render._keep=true;render()}catch(e){}})();
 if(STATIC_DATA){const load=async()=>{const g=u=>fetch(u+'?t='+Date.now(),{cache:'no-store'}).then(x=>x.ok?x.json():null).catch(()=>null);
   const [r,dn,od]=await Promise.all([g('data/rez2026.json'),g('data/dnevnik.json'),g('data/odbori_izmene.json')]);
-  if(r){META26=r.meta||null;Object.assign(R26,r.bm||{})}LOADT=new Date(); if(dn){LOG=dn.entries||[];LOGMETA=dn.meta||null} if(od)Object.assign(ODB,od.bm||{});
+  if(r){META26=r.meta||null;Object.assign(R26,r.bm||{})}LOADT=new Date(); if(dn){LOG=dn.entries||[];LOGMETA=dn.meta||null} if(od){Object.assign(ODB,od.bm||{});buildIdx()}
   render._keep=true;render()}; load(); setInterval(load,60000); loadZO(); setInterval(loadZO,180000); loadSrbLive(); setInterval(loadSrbLive,60000)}
 else (async()=>{try{const db=await window.claude?.use?.('db');if(!db)return;DB=db;
   db.collection('dnevnik').onSnapshot(snap=>{snap.docs.forEach(d=>{const v=d.data();if(d.id==='all'&&v){LOG=v.entries||[];LOGMETA=v.meta||null}});render._keep=true;render()},()=>{});
-  db.collection('odbori').onSnapshot(snap=>{snap.docs.forEach(d=>{const v=d.data();if(d.id==='izmene'&&v)Object.assign(ODB,v.bm||{})});render._keep=true;render()},()=>{});
+  db.collection('odbori').onSnapshot(snap=>{snap.docs.forEach(d=>{const v=d.data();if(d.id==='izmene'&&v){Object.assign(ODB,v.bm||{});buildIdx()}});render._keep=true;render()},()=>{});
   db.collection('rez2026').onSnapshot(snap=>{snap.docs.forEach(d=>{const v=d.data();if(!v||d.id!=='all')return;META26=v.meta||null;Object.assign(R26,v.bm||{})});render._keep=true;render()},()=>{});
 }catch(e){}})();
 
