@@ -1,4 +1,4 @@
-<!doctype html><html lang="sr-Latn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kontrola izbora Žabari</title><meta name="description" content="Biračka mesta u opštini Žabari: rezultati 2023, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:type" content="website"><meta property="og:url" content="https://kontrola-izbora-zabari.pages.dev/"><meta property="og:title" content="Kontrola izbora – Žabari"><meta property="og:description" content="Biračka mesta, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta name="appv" content="20261024122658"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#960018"><meta name="apple-mobile-web-app-title" content="Kontrola Žabari"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Kontrola izbora Žabari</title>
+<!doctype html><html lang="sr-Latn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kontrola izbora Žabari</title><meta name="description" content="Biračka mesta u opštini Žabari: rezultati 2023, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:type" content="website"><meta property="og:url" content="https://kontrola-izbora-zabari.pages.dev/"><meta property="og:title" content="Kontrola izbora – Žabari"><meta property="og:description" content="Biračka mesta, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta name="appv" content="20261024123422"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#960018"><meta name="apple-mobile-web-app-title" content="Kontrola Žabari"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Kontrola izbora Žabari</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -375,6 +375,7 @@ table thead th{vertical-align:middle!important}
 
 /*cc2*/.cntcol .pgc{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:4px!important}.cntcol .pgc .ccw{min-width:0}.cntcol .pgc .cc{width:100%!important;box-sizing:border-box;overflow:hidden;padding:16px 2px 6px!important}.cntcol .pgc .cc b{font-size:18px!important}.cntcol .pgc .cc .lb{font-size:9px!important;letter-spacing:-.01em}
 .pgm .cnt.c3 button b{font-size:19px!important}.pgm .cnt.c3 button .lb{font-size:10.5px!important}
+/*bk2*/.back2{display:inline-flex;align-items:center;gap:3px;padding-left:7px!important;font-weight:600!important}
 </style>
 
 <div class="wrap">
@@ -401,7 +402,7 @@ table thead th{vertical-align:middle!important}
 
 <div class="overlay" id="settings" hidden>
  <div class="ovin">
-  <div class="ovh"><button class="back2" id="setback">← Nazad</button><h2>Podešavanja</h2></div>
+  <div class="ovh"><button class="back2" id="setback"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Nazad</button><h2>Podešavanja</h2></div>
   <section class="sec"><h3>Osvetljenje</h3>
    <div class="seg" role="radiogroup" aria-label="Osvetljenje">
     <button data-th="auto" role="radio">Kao na uređaju</button><button data-th="light" role="radio">Svetlo</button><button data-th="dark" role="radio">Tamno</button>
@@ -647,7 +648,7 @@ function ballot(y,z,extra){_SHY=y;_SHZ=z;
   else {lists=y.lists;valid=y.valid}
   const max=Math.max(...lists.map(l=>l[1]||0),1);
   const sumL=lists.reduce((a,l)=>a+(l[1]||0),0);
-  return `<div style="display:flex;justify-content:space-between;align-items:center"><button class="back2" id="back2">← Nazad</button><button class="more" id="shareb" style="margin-top:6px">PODELI</button></div>${tabs}
+  return `<div style="display:flex;justify-content:space-between;align-items:center"><button class="back2" id="back2"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Nazad</button><button class="more" id="shareb" style="margin-top:6px">PODELI</button></div>${tabs}
   <div class="sec"><h3>Izborni listić ${btab} – svi glasovi</h3>${note?`<div class="small" style="margin-bottom:6px">${note}</div>`:''}<div class="tbl"><table><thead><tr><th>#</th><th>Lista</th><th style="text-align:right"><button class="sortbtn" id="bsort" title="Sortiraj po broju glasova">Glasova ${bsort?"▼":"↕"}</button></th><th style="text-align:right">%</th></tr></thead><tbody>
   ${lists.map((l,i)=>[l,i]).sort((a,b)=>bsort?((b[0][1]||0)-(a[0][1]||0)||a[1]-b[1]):a[1]-b[1]).map(([l,i])=>`<tr${l[1]?'':' class="zero"'}><td class="n">${i+1}.</td><td>${esc(l[0])}${l[1]!=null?`<div class="bar" style="width:${((l[1]||0)/max*100).toFixed(1)}%"></div>`:''}</td><td class="n">${l[1]==null?'—':fmt(l[1])}</td><td class="n">${l[1]==null?'':pct(l[1],valid)}</td></tr>`).join('')}
   ${valid!=null?`<tr class="tot"><td></td><td>Ukupno po listama</td><td class="n">${fmt(sumL)}</td><td class="n"></td></tr>
@@ -842,7 +843,7 @@ const CUTK=10230000; // 23.10. 00:00
 const nIzm=n=>bibItems(n).filter(x=>atKey(x.at)>=CUTK).length;
 const provLine=()=>`<div class="small prov">Provereno: ${esc(LOGMETA&&LOGMETA.checked||'—')}</div>`;
 const bibBtn='<button class="more" id="bibb">BIBLIOTEKA</button>';
-function bibView(n){const it=bibItems(n);return `<button class="back2" id="back2">← Nazad</button><div class="sec" style="margin-top:8px"><h3>Biblioteka</h3>${it.length?it.map(e=>`<div class="it"><div class="d1">${esc(e.at)}</div><div class="d2">${e.bm?`BM ${e.bm} · ${esc(S[e.bm-1]?.place||'')}`:'Cela opština'}</div><div class="d3">${esc(e.t)}</div>${e.l?`<div class="d4">${link(e.l,'PDF')}</div>`:''}</div>`).join(''):'<div class="small">Nema rešenja.</div>'}</div>`}
+function bibView(n){const it=bibItems(n);return `<button class="back2" id="back2"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Nazad</button><div class="sec" style="margin-top:8px"><h3>Biblioteka</h3>${it.length?it.map(e=>`<div class="it"><div class="d1">${esc(e.at)}</div><div class="d2">${e.bm?`BM ${e.bm} · ${esc(S[e.bm-1]?.place||'')}`:'Cela opština'}</div><div class="d3">${esc(e.t)}</div>${e.l?`<div class="d4">${link(e.l,'PDF')}</div>`:''}</div>`).join(''):'<div class="small">Nema rešenja.</div>'}</div>`}
 function latestDoc(n){const it=bibItems(n),d=it[0];if(!d)return '';const m=/(\d+)\.(\d+)\./.exec(d.at),dt=m?new Date(2026,+m[2]-1,+m[1]):null;
   return `<div class="lnk">${atKey(d.at)>=CUTK?'<span class="nov2">NOVO</span>':''}${link(d.l,esc(d.t))} <span class="small">(${esc(d.at)})</span></div>`}
 // ---------- dnevnik rezultata ----------
@@ -865,7 +866,7 @@ const rawSigOK=r=>!((r.ne||[]).length);
 const dnItem=(e,l2)=>`<div class="it"><div class="d1">${esc(e.at||'')}</div><div class="d2">${l2}</div><div class="d3">${esc(e.t)}</div>${e.l?`<div class="d4">${link(e.l,'Zapisnik (PDF)')}</div>`:''}</div>`;
 const dnBtn='<button class="more" id="dnb">DNEVNIK</button>';
 function dnView(items){items=items.filter(e=>e.at).sort((a,b)=>atKey(b.at)-atKey(a.at));
-  return `<button class="back2" id="back2">← Nazad</button><div class="sec" style="margin-top:8px"><h3>Dnevnik rezultata</h3>${items.length?items.slice(0,400).map(e=>dnItem(e,e.l2)).join(''):'<div class="small">Još nema upisa.</div>'}</div>`}
+  return `<button class="back2" id="back2"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Nazad</button><div class="sec" style="margin-top:8px"><h3>Dnevnik rezultata</h3>${items.length?items.slice(0,400).map(e=>dnItem(e,e.l2)).join(''):'<div class="small">Još nema upisa.</div>'}</div>`}
 let sel=null, view='main';
 function setSel(n){{const _p=document.getElementById("panel");if(_p)_p.style.minHeight=""}setTimeout(()=>typeof updBk==="function"&&updBk(),0);
   sel=n;
@@ -904,7 +905,7 @@ function logView(){
       docs:x.type!=='rezultat'?zh.map((z,i)=>({title:'verzija '+(i+1)+((z.asset||z.file)?' (kopija)':''),link:zapUrl(z)})):[]}));
   });
   items.sort((a,b)=>atKey(b.at)-atKey(a.at));
-  return `<button class="back2" id="back2">← Nazad</button>
+  return `<button class="back2" id="back2"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Nazad</button>
    <div class="sec"><h3>Dnevnik promena</h3>
    <div class="small" style="margin-bottom:8px">Izmene u biračkim odborima (provera rešenja na RIK-u svakog dana u 17 h do 25. 10.${LOGMETA&&LOGMETA.checked?`, poslednja ${esc(LOGMETA.checked)}`:''}), izmenjeni zapisnici i rezultati na RIK-u, oborena BM i primedbe iz zapisnika.</div>
    ${items.length?`<div class="tbl"><table class="log"><thead><tr><th>Vreme</th><th>BM</th><th>Šta</th></tr></thead><tbody>${items.map(i=>`<tr><td class="n">${esc(i.at||'')}</td><td>${i.bm?`<a href="#bm${i.bm}" data-go="${i.bm}">BM ${i.bm}</a><div class="small">${esc(S[i.bm-1]?.place||'')}</div>`:'<span class="small">cela opština</span>'}</td><td><span class="chip">${i.k}</span> ${esc(i.t)}${i.docs.length?`<div class="links" style="margin-top:4px">${i.docs.map(d=>link(d.link,esc(d.title))).join('')}</div>`:''}</td></tr>`).join('')}</tbody></table></div>`
