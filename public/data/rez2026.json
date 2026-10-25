@@ -1,7 +1,7 @@
 {
  "meta": {
-  "checked": "25.10. 23:02",
-  "processed": 6,
+  "checked": "26.10. 00:03",
+  "processed": 9,
   "stations": 37
  },
  "bm": {
@@ -493,24 +493,24 @@
    "status": null
   },
   "bm15": {
-   "processed": false,
+   "processed": true,
    "voters": 301,
-   "out": 0,
+   "out": 200,
    "outside": null,
-   "valid": 0,
-   "invalid": 0,
+   "valid": 197,
+   "invalid": 3,
    "lists": [
+    71,
+    4,
+    115,
+    1,
     0,
     0,
+    2,
+    3,
     0,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    1,
     0,
     0,
     0,
@@ -519,10 +519,23 @@
     0,
     0
    ],
-   "at": null,
-   "zap_history": [],
+   "at": "26.10. 00:03",
+   "zap_history": [
+    {
+     "link": "https://www.rik.parlament.gov.rs/extfile/sr/election_results/805/850/6ade85bc0061d/@ПА15_9db574869a8c1a3ce960300b7a99fba9.pdf",
+     "sha": "4e05fea9766b86cd406088e96736596c1d4244dae7eb80e22895f811250d8a20",
+     "file": "bm15_4e05fea976.pdf",
+     "asset": null,
+     "at": "26.10. 00:03"
+    }
+   ],
    "alerts": [],
-   "status": null
+   "status": {
+    "oboreno": false,
+    "primedbe": null,
+    "napomena": "brojevi se slažu; u tački 11 precrtan upis „200” uz paraf C.M.",
+    "at": "26.10. 00:03"
+   }
   },
   "bm16": {
    "processed": true,
@@ -634,16 +647,16 @@
    "status": null
   },
   "bm19": {
-   "processed": false,
+   "processed": true,
    "voters": 272,
-   "out": 0,
+   "out": 119,
    "outside": null,
-   "valid": 0,
-   "invalid": 0,
+   "valid": 118,
+   "invalid": 1,
    "lists": [
-    0,
-    0,
-    0,
+    100,
+    1,
+    17,
     0,
     0,
     0,
@@ -660,22 +673,35 @@
     0,
     0
    ],
-   "at": null,
-   "zap_history": [],
+   "at": "26.10. 00:03",
+   "zap_history": [
+    {
+     "link": "https://www.rik.parlament.gov.rs/extfile/sr/election_results/804/812/6ade83542679d/@ПА19_256727459afbf0d916389c5ab918fb43.pdf",
+     "sha": "fcee3a48499c3e76dbfda65a10ccff28cf115bb09347a1c8f3fc69b5d4153f88",
+     "file": "bm19_fcee3a4849.pdf",
+     "asset": null,
+     "at": "26.10. 00:03"
+    }
+   ],
    "alerts": [],
-   "status": null
+   "status": {
+    "oboreno": false,
+    "primedbe": null,
+    "napomena": "brojevi se slažu; tačka 16 (primedbe) nije zaokružena, 16.1 prazno",
+    "at": "26.10. 00:03"
+   }
   },
   "bm20": {
-   "processed": false,
+   "processed": true,
    "voters": 221,
-   "out": 0,
+   "out": 62,
    "outside": null,
-   "valid": 0,
-   "invalid": 0,
+   "valid": 61,
+   "invalid": 1,
    "lists": [
+    44,
     0,
-    0,
-    0,
+    17,
     0,
     0,
     0,
@@ -692,10 +718,23 @@
     0,
     0
    ],
-   "at": null,
-   "zap_history": [],
+   "at": "26.10. 00:03",
+   "zap_history": [
+    {
+     "link": "https://www.rik.parlament.gov.rs/extfile/sr/election_results/802/520/6ade7df175a34/@ПА20_9c7a6d975e17dc814bd066ca64e2e633.pdf",
+     "sha": "1b542e0d67aba1da144c91ad369661f26811febbcd02c7b828df22253b552f1f",
+     "file": "bm20_1b542e0d67.pdf",
+     "asset": null,
+     "at": "26.10. 00:03"
+    }
+   ],
    "alerts": [],
-   "status": null
+   "status": {
+    "oboreno": false,
+    "primedbe": null,
+    "napomena": null,
+    "at": "26.10. 00:03"
+   }
   },
   "bm21": {
    "processed": false,
