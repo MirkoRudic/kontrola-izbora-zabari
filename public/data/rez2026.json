@@ -1,13 +1,13 @@
 {
  "meta": {
-  "checked": "20.10. 17:26",
+  "checked": "25.10. 21:07",
   "processed": 0,
   "stations": 37
  },
  "bm": {
   "bm01": {
    "processed": false,
-   "voters": 0,
+   "voters": 376,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -32,13 +32,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm02": {
    "processed": false,
-   "voters": 0,
+   "voters": 248,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -63,13 +64,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm03": {
    "processed": false,
-   "voters": 0,
+   "voters": 308,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -94,13 +96,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm04": {
    "processed": false,
-   "voters": 0,
+   "voters": 282,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -125,13 +128,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm05": {
    "processed": false,
-   "voters": 0,
+   "voters": 314,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -156,13 +160,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm06": {
    "processed": false,
-   "voters": 0,
+   "voters": 267,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -187,13 +192,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm07": {
    "processed": false,
-   "voters": 0,
+   "voters": 388,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -218,13 +224,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm08": {
    "processed": false,
-   "voters": 0,
+   "voters": 284,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -249,13 +256,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm09": {
    "processed": false,
-   "voters": 0,
+   "voters": 139,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -280,13 +288,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm10": {
    "processed": false,
-   "voters": 0,
+   "voters": 410,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -311,13 +320,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm11": {
    "processed": false,
-   "voters": 0,
+   "voters": 386,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -342,13 +352,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm12": {
    "processed": false,
-   "voters": 0,
+   "voters": 341,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -373,13 +384,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm13": {
    "processed": false,
-   "voters": 0,
+   "voters": 442,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -404,13 +416,27 @@
     0,
     0
    ],
-   "zap_history": [],
+   "at": null,
+   "zap_history": [
+    {
+     "link": "https://www.rik.parlament.gov.rs/extfile/sr/election_results/793/331/6ade5fcb04811/@ПА13_d7e8c867cd0fe15c9eaed354345f2285.pdf",
+     "sha": "1f6a562f6e5e49fdb78061da293a392b017d65d6a0ebf310c6f8483321d32916",
+     "file": "bm13_1f6a562f6e.pdf",
+     "asset": null,
+     "at": "25.10. 21:07"
+    }
+   ],
    "alerts": [],
-   "status": null
+   "status": {
+    "oboreno": false,
+    "primedbe": null,
+    "napomena": "Bez prekida i primedbi; 50 glasalo, 50 u kutiji, 0 nevažećih; svih 50 glasova lista 1",
+    "at": "25.10. 21:07"
+   }
   },
   "bm14": {
    "processed": false,
-   "voters": 0,
+   "voters": 326,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -435,13 +461,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm15": {
    "processed": false,
-   "voters": 0,
+   "voters": 301,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -466,13 +493,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm16": {
    "processed": false,
-   "voters": 0,
+   "voters": 199,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -497,13 +525,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm17": {
    "processed": false,
-   "voters": 0,
+   "voters": 314,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -528,13 +557,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm18": {
    "processed": false,
-   "voters": 0,
+   "voters": 301,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -559,13 +589,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm19": {
    "processed": false,
-   "voters": 0,
+   "voters": 272,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -590,13 +621,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm20": {
    "processed": false,
-   "voters": 0,
+   "voters": 221,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -621,13 +653,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm21": {
    "processed": false,
-   "voters": 0,
+   "voters": 240,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -652,13 +685,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm22": {
    "processed": false,
-   "voters": 0,
+   "voters": 280,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -683,13 +717,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm23": {
    "processed": false,
-   "voters": 0,
+   "voters": 168,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -714,13 +749,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm24": {
    "processed": false,
-   "voters": 0,
+   "voters": 131,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -745,13 +781,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm25": {
    "processed": false,
-   "voters": 0,
+   "voters": 280,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -776,13 +813,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm26": {
    "processed": false,
-   "voters": 0,
+   "voters": 458,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -807,13 +845,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm27": {
    "processed": false,
-   "voters": 0,
+   "voters": 427,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -838,13 +877,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm28": {
    "processed": false,
-   "voters": 0,
+   "voters": 490,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -869,13 +909,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm29": {
    "processed": false,
-   "voters": 0,
+   "voters": 199,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -900,13 +941,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm30": {
    "processed": false,
-   "voters": 0,
+   "voters": 265,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -931,13 +973,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm31": {
    "processed": false,
-   "voters": 0,
+   "voters": 286,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -962,13 +1005,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm32": {
    "processed": false,
-   "voters": 0,
+   "voters": 238,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -993,13 +1037,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm33": {
    "processed": false,
-   "voters": 0,
+   "voters": 293,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -1024,13 +1069,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm34": {
    "processed": false,
-   "voters": 0,
+   "voters": 216,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -1055,13 +1101,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm35": {
    "processed": false,
-   "voters": 0,
+   "voters": 304,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -1086,13 +1133,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm36": {
    "processed": false,
-   "voters": 0,
+   "voters": 266,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -1117,13 +1165,14 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
   },
   "bm37": {
    "processed": false,
-   "voters": 0,
+   "voters": 225,
    "out": 0,
    "outside": null,
    "valid": null,
@@ -1148,6 +1197,7 @@
     0,
     0
    ],
+   "at": null,
    "zap_history": [],
    "alerts": [],
    "status": null
