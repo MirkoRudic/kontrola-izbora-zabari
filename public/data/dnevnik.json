@@ -1,6 +1,17 @@
 {
  "entries": [
   {
+   "at": "25.10. 07:04",
+   "bm": null,
+   "text": "Informacija o ukupnom broju birača koji žele da glasaju van biračkog mesta: prijavljena su 33 birača (ne menja sastav odbora).",
+   "docs": [
+    {
+     "title": "Informacija (PDF)",
+     "link": "https://www.rik.parlament.gov.rs/extfile/sr/files/additionalDocuments/810/890/SCAN0006.PDF"
+    }
+   ]
+  },
+  {
    "at": "22.10. 23:45",
    "bm": 27,
    "text": "Umesto Aleksandra Antović, za zamenika člana u proširenom sastavu imenuje se Nevena Tomić (predlog: AUTENTIČNA DESNICA – dr MILOŠ JOVANOVIĆ (NADA) – ODVAŽNO SRPSKI!).",
@@ -408,8 +419,8 @@
   }
  ],
  "meta": {
-  "checked": "24.10. 23:21",
-  "docs": 120
+  "checked": "25.10. 08:22",
+  "docs": 121
  },
  "known": [
   "012bf0afe8b0",
@@ -531,6 +542,7 @@
   "f919fb961ee1",
   "fd57eb815124",
   "fe0cdd224b8a",
-  "ff70220853b9"
+  "ff70220853b9",
+  "813b1cb8e57c"
  ]
 }
