@@ -1,7 +1,7 @@
 {
  "meta": {
-  "checked": "25.10. 22:02",
-  "processed": 2,
+  "checked": "25.10. 23:02",
+  "processed": 6,
   "stations": 37
  },
  "bm": {
@@ -198,17 +198,17 @@
    "status": null
   },
   "bm07": {
-   "processed": false,
+   "processed": true,
    "voters": 388,
-   "out": 0,
+   "out": 140,
    "outside": null,
-   "valid": 0,
-   "invalid": 0,
+   "valid": 137,
+   "invalid": 3,
    "lists": [
-    0,
-    0,
-    0,
-    0,
+    87,
+    7,
+    42,
+    1,
     0,
     0,
     0,
@@ -224,30 +224,43 @@
     0,
     0
    ],
-   "at": null,
-   "zap_history": [],
+   "at": "25.10. 23:02",
+   "zap_history": [
+    {
+     "link": "https://www.rik.parlament.gov.rs/extfile/sr/election_results/800/918/6ade7a1794249/@ПА7_29ccdd7ae437ce2e08950b820142c8db.pdf",
+     "sha": "08df9b2e46384b9ee8805e637da7fcc36ade1d363c70466124512428970cfa8d",
+     "file": "bm07_08df9b2e46.pdf",
+     "asset": null,
+     "at": "25.10. 23:02"
+    }
+   ],
    "alerts": [],
-   "status": null
+   "status": {
+    "oboreno": false,
+    "primedbe": null,
+    "napomena": null,
+    "at": "25.10. 23:02"
+   }
   },
   "bm08": {
-   "processed": false,
+   "processed": true,
    "voters": 284,
-   "out": 0,
+   "out": 113,
    "outside": null,
-   "valid": 0,
-   "invalid": 0,
+   "valid": 112,
+   "invalid": 1,
    "lists": [
+    73,
+    5,
+    26,
+    2,
     0,
     0,
     0,
+    3,
+    1,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    2,
     0,
     0,
     0,
@@ -256,10 +269,23 @@
     0,
     0
    ],
-   "at": null,
-   "zap_history": [],
+   "at": "25.10. 23:02",
+   "zap_history": [
+    {
+     "link": "https://www.rik.parlament.gov.rs/extfile/sr/election_results/796/196/6ade6d71685ef/@ПА8_dc948f57a1b2e5a78ad61b1c86fd3544.pdf",
+     "sha": "d1d1333020158f3ec8a33de05d5e7032301fb8a5172dc746b684244ec5b6e6ff",
+     "file": "bm08_d1d1333020.pdf",
+     "asset": null,
+     "at": "25.10. 23:02"
+    }
+   ],
    "alerts": [],
-   "status": null
+   "status": {
+    "oboreno": false,
+    "primedbe": null,
+    "napomena": "u 11.1 ispravljeno 115 u 113 (parafirano); potpisala samo 4 člana odbora",
+    "at": "25.10. 23:02"
+   }
   },
   "bm09": {
    "processed": false,
@@ -499,36 +525,49 @@
    "status": null
   },
   "bm16": {
-   "processed": false,
+   "processed": true,
    "voters": 199,
-   "out": 0,
+   "out": 129,
    "outside": null,
-   "valid": 0,
-   "invalid": 0,
+   "valid": 126,
+   "invalid": 3,
    "lists": [
+    62,
+    3,
+    57,
+    0,
+    0,
+    0,
+    0,
+    3,
     0,
     0,
     0,
     0,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    1,
     0,
     0,
     0,
     0
    ],
-   "at": null,
-   "zap_history": [],
+   "at": "25.10. 23:02",
+   "zap_history": [
+    {
+     "link": "https://www.rik.parlament.gov.rs/extfile/sr/election_results/799/439/6ade764d3fdc4/@ПА16_4c61850714bab1053ff225296a0466bc.pdf",
+     "sha": "7e963446152c9076fc16325b3b4618b950abda2ffe9c6621b1d9fda9dd62c4db",
+     "file": "bm16_7e96344615.pdf",
+     "asset": null,
+     "at": "25.10. 23:02"
+    }
+   ],
    "alerts": [],
-   "status": null
+   "status": {
+    "oboreno": false,
+    "primedbe": null,
+    "napomena": "tačka 10/10.1 (kontrolni list) nije zaokružena",
+    "at": "25.10. 23:02"
+   }
   },
   "bm17": {
    "processed": false,
@@ -1184,36 +1223,49 @@
    "status": null
   },
   "bm37": {
-   "processed": false,
+   "processed": true,
    "voters": 225,
-   "out": 0,
+   "out": 123,
    "outside": null,
-   "valid": 0,
-   "invalid": 0,
+   "valid": 122,
+   "invalid": 1,
    "lists": [
+    73,
+    4,
+    41,
     0,
     0,
     0,
     0,
+    2,
+    1,
     0,
     0,
     0,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    1,
     0,
     0,
     0,
     0
    ],
-   "at": null,
-   "zap_history": [],
+   "at": "25.10. 23:02",
+   "zap_history": [
+    {
+     "link": "https://www.rik.parlament.gov.rs/extfile/sr/election_results/797/312/6ade707152351/@ПА37_a9865c8ace89b7dfdf0d0d1a6b434ecb.pdf",
+     "sha": "13ce57dc45f60d7dca203683fdace84bfd169651debc843b15c9253cd37e6fdf",
+     "file": "bm37_13ce57dc45.pdf",
+     "asset": null,
+     "at": "25.10. 23:02"
+    }
+   ],
    "alerts": [],
-   "status": null
+   "status": {
+    "oboreno": false,
+    "primedbe": null,
+    "napomena": null,
+    "at": "25.10. 23:02"
+   }
   }
  }
 }
