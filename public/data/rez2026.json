@@ -1,7 +1,7 @@
 {
  "meta": {
-  "checked": "25.10. 21:07",
-  "processed": 0,
+  "checked": "25.10. 22:02",
+  "processed": 2,
   "stations": 37
  },
  "bm": {
@@ -10,8 +10,8 @@
    "voters": 376,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -42,8 +42,8 @@
    "voters": 248,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -74,8 +74,8 @@
    "voters": 308,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -106,8 +106,8 @@
    "voters": 282,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -138,8 +138,8 @@
    "voters": 314,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -170,8 +170,8 @@
    "voters": 267,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -202,8 +202,8 @@
    "voters": 388,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -234,8 +234,8 @@
    "voters": 284,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -266,8 +266,8 @@
    "voters": 139,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -298,8 +298,8 @@
    "voters": 410,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -330,8 +330,8 @@
    "voters": 386,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -362,8 +362,8 @@
    "voters": 341,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -390,14 +390,14 @@
    "status": null
   },
   "bm13": {
-   "processed": false,
+   "processed": true,
    "voters": 442,
-   "out": 0,
+   "out": 50,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 50,
+   "invalid": 0,
    "lists": [
-    0,
+    50,
     0,
     0,
     0,
@@ -416,7 +416,7 @@
     0,
     0
    ],
-   "at": null,
+   "at": "25.10. 22:02",
    "zap_history": [
     {
      "link": "https://www.rik.parlament.gov.rs/extfile/sr/election_results/793/331/6ade5fcb04811/@ПА13_d7e8c867cd0fe15c9eaed354345f2285.pdf",
@@ -439,8 +439,8 @@
    "voters": 326,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -471,8 +471,8 @@
    "voters": 301,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -503,8 +503,8 @@
    "voters": 199,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -535,8 +535,8 @@
    "voters": 314,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -567,8 +567,8 @@
    "voters": 301,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -599,8 +599,8 @@
    "voters": 272,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -631,8 +631,8 @@
    "voters": 221,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -663,8 +663,8 @@
    "voters": 240,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -695,8 +695,8 @@
    "voters": 280,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -727,8 +727,8 @@
    "voters": 168,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -755,13 +755,16 @@
    "status": null
   },
   "bm24": {
-   "processed": false,
+   "processed": true,
    "voters": 131,
-   "out": 0,
+   "out": 62,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 62,
+   "invalid": 0,
    "lists": [
+    35,
+    2,
+    24,
     0,
     0,
     0,
@@ -774,25 +777,35 @@
     0,
     0,
     0,
-    0,
-    0,
-    0,
-    0,
+    1,
     0,
     0
    ],
-   "at": null,
-   "zap_history": [],
+   "at": "25.10. 22:02",
+   "zap_history": [
+    {
+     "link": "https://www.rik.parlament.gov.rs/extfile/sr/election_results/794/330/6ade670b53a60/@ПА24_1300f25bd6a5822fa1b916337e8e8029.pdf",
+     "sha": "56247fb9bab598bd5f832db69faf45f56b2a73ccabf492e1279826e52458391d",
+     "file": "bm24_56247fb9ba.pdf",
+     "asset": null,
+     "at": "25.10. 22:02"
+    }
+   ],
    "alerts": [],
-   "status": null
+   "status": {
+    "oboreno": false,
+    "primedbe": null,
+    "napomena": null,
+    "at": "25.10. 22:02"
+   }
   },
   "bm25": {
    "processed": false,
    "voters": 280,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -823,8 +836,8 @@
    "voters": 458,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -855,8 +868,8 @@
    "voters": 427,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -887,8 +900,8 @@
    "voters": 490,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -919,8 +932,8 @@
    "voters": 199,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -951,8 +964,8 @@
    "voters": 265,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -983,8 +996,8 @@
    "voters": 286,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -1015,8 +1028,8 @@
    "voters": 238,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -1047,8 +1060,8 @@
    "voters": 293,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -1079,8 +1092,8 @@
    "voters": 216,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -1111,8 +1124,8 @@
    "voters": 304,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -1143,8 +1156,8 @@
    "voters": 266,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
@@ -1175,8 +1188,8 @@
    "voters": 225,
    "out": 0,
    "outside": null,
-   "valid": null,
-   "invalid": null,
+   "valid": 0,
+   "invalid": 0,
    "lists": [
     0,
     0,
