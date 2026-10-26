@@ -1,7 +1,7 @@
 {
  "meta": {
-  "checked": "26.10. 05:02",
-  "processed": 31,
+  "checked": "26.10. 06:02",
+  "processed": 34,
   "stations": 37
  },
  "bm": {
@@ -147,13 +147,16 @@
    "status": null
   },
   "bm05": {
-   "processed": false,
+   "processed": true,
    "voters": 314,
-   "out": 0,
+   "out": 159,
    "outside": null,
-   "valid": 0,
-   "invalid": 0,
+   "valid": 158,
+   "invalid": 1,
    "lists": [
+    90,
+    3,
+    62,
     0,
     0,
     0,
@@ -161,19 +164,16 @@
     0,
     0,
     0,
+    2,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    1,
     0,
     0,
     0,
     0,
     0
    ],
-   "at": null,
+   "at": "26.10. 06:02",
    "zap_history": [],
    "alerts": [],
    "status": null
@@ -1206,24 +1206,24 @@
    }
   },
   "bm32": {
-   "processed": false,
+   "processed": true,
    "voters": 238,
-   "out": 0,
+   "out": 125,
    "outside": null,
-   "valid": 0,
+   "valid": 125,
    "invalid": 0,
    "lists": [
+    48,
+    10,
+    63,
     0,
     0,
     0,
     0,
+    1,
+    1,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    2,
     0,
     0,
     0,
@@ -1232,10 +1232,29 @@
     0,
     0
    ],
-   "at": null,
-   "zap_history": [],
-   "alerts": [],
-   "status": null
+   "at": "26.10. 06:02",
+   "zap_history": [
+    {
+     "link": "https://www.rik.parlament.gov.rs/extfile/sr/election_results/827/495/6aded850b656d/@ПА32_9b9c557a0e7e7f8cb99ebe08e3585d61.pdf",
+     "sha": "75976c5f4118abc6c7c4faa8154decf2248b342902ce8bb94ca0daa1fca227f2",
+     "file": "bm32_75976c5f41.pdf",
+     "asset": null,
+     "at": "26.10. 06:02"
+    }
+   ],
+   "alerts": [
+    {
+     "type": "primedbe",
+     "at": "26.10. 06:02",
+     "detail": "U 16.1 upisano (iako je 16 zaokruženo NE): na zahtev člana G. Tube utvrđeno je 239 umesto 238 listića (1 višak u bloku od 100); obavešten RIK, glasanje nastavljeno"
+    }
+   ],
+   "status": {
+    "oboreno": false,
+    "primedbe": "U 16.1 upisano (iako je 16 zaokruženo NE): na zahtev člana G. Tube utvrđeno je 239 umesto 238 listića (1 višak u bloku od 100); obavešten RIK, glasanje nastavljeno",
+    "napomena": "Glasanje prekinuto 21 min (11:02–11:23) zbog kvara obe lampe; brojevi se slažu (125 glasalo, 125 u kutiji)",
+    "at": "26.10. 06:02"
+   }
   },
   "bm33": {
    "processed": true,
@@ -1315,24 +1334,24 @@
    "status": null
   },
   "bm35": {
-   "processed": false,
+   "processed": true,
    "voters": 304,
-   "out": 0,
+   "out": 146,
    "outside": null,
-   "valid": 0,
-   "invalid": 0,
+   "valid": 145,
+   "invalid": 1,
    "lists": [
+    83,
+    7,
+    53,
+    1,
     0,
     0,
     0,
     0,
     0,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    1,
     0,
     0,
     0,
@@ -1341,10 +1360,23 @@
     0,
     0
    ],
-   "at": null,
-   "zap_history": [],
+   "at": "26.10. 06:02",
+   "zap_history": [
+    {
+     "link": "https://www.rik.parlament.gov.rs/extfile/sr/election_results/827/855/6adedbfc3cf3f/@ПА35_f8b4a29afca39ef01ff11b1764ad19ec.pdf",
+     "sha": "d06065f326ee9130b933ae348b21d222a068a283de86af977716dac38d7e30f5",
+     "file": "bm35_d06065f326.pdf",
+     "asset": null,
+     "at": "26.10. 06:02"
+    }
+   ],
    "alerts": [],
-   "status": null
+   "status": {
+    "oboreno": false,
+    "primedbe": null,
+    "napomena": null,
+    "at": "26.10. 06:02"
+   }
   },
   "bm36": {
    "processed": true,
