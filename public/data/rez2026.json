@@ -1,29 +1,29 @@
 {
  "meta": {
-  "checked": "26.10. 04:02",
-  "processed": 27,
+  "checked": "26.10. 05:02",
+  "processed": 31,
   "stations": 37
  },
  "bm": {
   "bm01": {
-   "processed": false,
+   "processed": true,
    "voters": 376,
-   "out": 0,
+   "out": 193,
    "outside": null,
-   "valid": 0,
-   "invalid": 0,
+   "valid": 189,
+   "invalid": 4,
    "lists": [
+    128,
+    4,
+    51,
+    1,
     0,
     0,
     0,
+    1,
+    1,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    3,
     0,
     0,
     0,
@@ -32,7 +32,7 @@
     0,
     0
    ],
-   "at": null,
+   "at": "26.10. 05:02",
    "zap_history": [],
    "alerts": [],
    "status": null
@@ -397,21 +397,21 @@
    "status": null
   },
   "bm12": {
-   "processed": false,
+   "processed": true,
    "voters": 341,
-   "out": 0,
+   "out": 184,
    "outside": null,
-   "valid": 0,
+   "valid": 184,
    "invalid": 0,
    "lists": [
+    133,
+    2,
+    45,
     0,
     0,
     0,
     0,
-    0,
-    0,
-    0,
-    0,
+    4,
     0,
     0,
     0,
@@ -423,10 +423,23 @@
     0,
     0
    ],
-   "at": null,
-   "zap_history": [],
+   "at": "26.10. 05:02",
+   "zap_history": [
+    {
+     "link": "https://www.rik.parlament.gov.rs/extfile/sr/election_results/825/821/6adeca0c1d9b9/@ПА12_6e531f30f60feffc26df22a04a1299e3.pdf",
+     "sha": "ab658da675f4c2f8f2599f27b0175cb86197f6bc22ab819ca01a2e0d39a7c5bc",
+     "file": "bm12_ab658da675.pdf",
+     "asset": null,
+     "at": "26.10. 05:02"
+    }
+   ],
    "alerts": [],
-   "status": null
+   "status": {
+    "oboreno": false,
+    "primedbe": null,
+    "napomena": null,
+    "at": "26.10. 05:02"
+   }
   },
   "bm13": {
    "processed": true,
@@ -474,24 +487,24 @@
    }
   },
   "bm14": {
-   "processed": false,
+   "processed": true,
    "voters": 326,
-   "out": 0,
+   "out": 247,
    "outside": null,
-   "valid": 0,
-   "invalid": 0,
+   "valid": 244,
+   "invalid": 3,
    "lists": [
+    127,
+    6,
+    104,
     0,
     0,
     0,
+    1,
+    5,
     0,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    1,
     0,
     0,
     0,
@@ -500,7 +513,7 @@
     0,
     0
    ],
-   "at": null,
+   "at": "26.10. 05:02",
    "zap_history": [],
    "alerts": [],
    "status": null
@@ -1039,33 +1052,33 @@
    }
   },
   "bm28": {
-   "processed": false,
+   "processed": true,
    "voters": 490,
-   "out": 0,
+   "out": 235,
    "outside": null,
-   "valid": 0,
-   "invalid": 0,
+   "valid": 230,
+   "invalid": 5,
    "lists": [
+    142,
+    11,
+    65,
+    1,
+    0,
+    0,
+    2,
+    6,
     0,
     0,
     0,
+    1,
+    1,
     0,
     0,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    1,
     0
    ],
-   "at": null,
+   "at": "26.10. 05:02",
    "zap_history": [],
    "alerts": [],
    "status": null
@@ -1175,9 +1188,22 @@
     0
    ],
    "at": "26.10. 04:02",
-   "zap_history": [],
+   "zap_history": [
+    {
+     "link": "https://www.rik.parlament.gov.rs/extfile/sr/election_results/822/113/6adeb4815f1fb/@ПА31_aef327ce02730fbc18258047dcaf8a1a.pdf",
+     "sha": "4bbefc4d0eee63527619f51b89933076b54484910c1744a4732015e20827c5fc",
+     "file": "bm31_4bbefc4d0e.pdf",
+     "asset": null,
+     "at": "26.10. 05:02"
+    }
+   ],
    "alerts": [],
-   "status": null
+   "status": {
+    "oboreno": false,
+    "primedbe": null,
+    "napomena": "nije upisano vreme otvaranja BM (tačka 5)",
+    "at": "26.10. 05:02"
+   }
   },
   "bm32": {
    "processed": false,
