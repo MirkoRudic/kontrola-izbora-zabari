@@ -1,4 +1,4 @@
-<!doctype html><html lang="sr-Latn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kontrola izbora Žabari</title><meta name="description" content="Biračka mesta u opštini Žabari: rezultati 2023, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:type" content="website"><meta property="og:url" content="https://kontrola-izbora-zabari.pages.dev/"><meta property="og:title" content="Kontrola izbora – Žabari"><meta property="og:description" content="Biračka mesta, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta name="appv" content="20261026015922"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#960018"><meta name="apple-mobile-web-app-title" content="Kontrola Žabari"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Kontrola izbora Žabari</title>
+<!doctype html><html lang="sr-Latn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kontrola izbora Žabari</title><meta name="description" content="Biračka mesta u opštini Žabari: rezultati 2023, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:type" content="website"><meta property="og:url" content="https://kontrola-izbora-zabari.pages.dev/"><meta property="og:title" content="Kontrola izbora – Žabari"><meta property="og:description" content="Biračka mesta, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta name="appv" content="20261026150114"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#960018"><meta name="apple-mobile-web-app-title" content="Kontrola Žabari"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Kontrola izbora Žabari</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -661,7 +661,7 @@ function results(y,z,notes){
     ${row('Važeći listići',y.valid,z&&z.valid,y.out,z&&z.out)}
     ${row('Nevažeći listići',y.invalid,z&&z.invalid,y.out,z&&z.out)}
   </tbody></table></div>
-  ${notes?`<div class="foot1">${notes}</div>`:''}<div class="mrow">${dnBtn}</div></div>`}
+  ${notes?`<div class="foot1">${notes}</div>`:''}<div class="mrow">${dnBtn}${shBtn}</div></div>`}
 function status26(){
   const t=y26Total();
   if(!t) return `<div class="note" style="border-left-color:var(--line);background:var(--soft)">${Date.now()<Date.parse('2026-10-25T20:00:00+01:00')?'Povlačenje podataka sa RIK-a počinje 25.10. u 20 h.':'Čekamo rezultate.'}</div>`;
@@ -900,6 +900,11 @@ const CUTK=10230000; // 23.10. 00:00
 const nIzm=n=>bibItems(n).filter(x=>atKey(x.at)>=CUTK).length;
 const provLine=()=>`<div class="small prov">Provereno: ${esc(LOGMETA&&LOGMETA.checked||'—')}</div>`;
 const bibBtn='<button class="more" id="bibb">BIBLIOTEKA</button>';
+const shBtn='<button class="more" data-share="1">PODELI</button>';
+document.addEventListener('click',async e=>{const b=e.target.closest('[data-share]');if(!b)return;e.preventDefault();
+  const h=document.querySelector('#panel .ph2,#panel h2'),t=(h&&h.textContent.trim()),title=(document.title||'Kontrola izbora')+(t?' – '+t:''),url=location.href;
+  try{if(navigator.share){await navigator.share({title,text:title,url});return}}catch(x){if(x&&x.name==='AbortError')return}
+  try{await navigator.clipboard.writeText(url);toast('Link je kopiran')}catch(x){prompt('Kopiraj link:',url)}});
 function bibView(n){const it=bibItems(n);return `<button class="back2" id="back2"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Nazad</button><div class="sec" style="margin-top:8px"><h3>Biblioteka</h3>${it.length?it.map(e=>`<div class="it"><div class="d1">${esc(e.at)}</div><div class="d2">${e.bm?`BM ${e.bm} · ${esc(S[e.bm-1]?.place||'')}`:'Cela opština'}</div><div class="d3">${esc(e.t)}</div>${e.l?`<div class="d4">${link(e.l,'PDF')}</div>`:''}</div>`).join(''):'<div class="small">Nema rešenja.</div>'}</div>`}
 function latestDoc(n){const it=bibItems(n),d=it[0];if(!d)return '';const m=/(\d+)\.(\d+)\./.exec(d.at),dt=m?new Date(2026,+m[2]-1,+m[1]):null;
   return `<div class="lnk">${atKey(d.at)>=CUTK?'<span class="nov2">NOVO</span>':''}${link(d.l,esc(d.t))} <span class="small">(${esc(d.at)})</span></div>`}
@@ -974,16 +979,16 @@ function render(){
                :'';
   let body,hd;
   if(s){const g=sigOf(s.n);hd=header(s.n,s.place,s.name26,true,sigHtml(g),ptabs(g.p,g.ne.length?1:0,nIzm(s.n)),s.address||s.adr||'');
-    if(tab==='prim') body=primTab(()=>[s.n]);
-    else if(tab==='ne') body=primTab(()=>[s.n],1);
-    else if(tab==='odb') body=view==='bib'?bibView(s.n):odbTab(()=>provLine()+boardView(s)+latestDoc(s.n)+`<div class="mrow">${bibBtn}</div>`,s.n);
+    if(tab==='prim') body=primTab(()=>[s.n])+`<div class="mrow">${shBtn}</div>`;
+    else if(tab==='ne') body=primTab(()=>[s.n],1)+`<div class="mrow">${shBtn}</div>`;
+    else if(tab==='odb') body=view==='bib'?bibView(s.n):odbTab(()=>provLine()+boardView(s)+latestDoc(s.n)+`<div class="mrow">${bibBtn}${shBtn}</div>`,s.n);
     else if(view==='dn') body=dnView(dnBM(zbm(s.n),zapR(s.n),oblR(s.n)).map(e=>({...e,l2:`BM ${s.n} · ${esc(s.place)}`})));
     else if(view==='ballot') body=ballot(y,z,`<div class="sec"><h3>Zapisnici</h3><div class="links col">${zap26(s.n)}${link(s.y2023.doc,s.y2023.no_rg2?'Dokument 2023 na RIK-u (RG-11)':'Zapisnik 2023 (PDF, RIK)')}</div>${s.y2023.note&&!s.y2023.no_rg2?`<div class="small" style="margin-top:6px">Napomena iz zapisnika 2023: ${esc(s.y2023.note)}</div>`:''}</div>`);
     else body=results(y,z,notes);
   } else {const c=cntAll();hd=header(null,'Južna i Istočna Srbija','Opština Žabari',false,'',ptabs(c.p,c.e,nIzm(null)));
-    if(tab==='prim') body=primTab(()=>S.map(s=>s.n));
-    else if(tab==='ne') body=primTab(()=>S.map(s=>s.n),1);
-    else if(tab==='odb') body=view==='bib'?bibView(null):odbTab(()=>provLine()+coverage()+`<div class="mrow">${bibBtn}</div>`,null);
+    if(tab==='prim') body=primTab(()=>S.map(s=>s.n))+`<div class="mrow">${shBtn}</div>`;
+    else if(tab==='ne') body=primTab(()=>S.map(s=>s.n),1)+`<div class="mrow">${shBtn}</div>`;
+    else if(tab==='odb') body=view==='bib'?bibView(null):odbTab(()=>provLine()+coverage()+`<div class="mrow">${bibBtn}${shBtn}</div>`,null);
     else if(view==='dn') body=dnView(S.flatMap(st=>dnBM(zbm(st.n),null).filter(e=>!/^(Rezultati preuzeti|Zapisnik objavljen)/.test(e.t)).map(e=>({...e,l2:`<a href="#bm${st.n}" data-go="${st.n}">BM ${st.n}</a> · ${esc(st.place)}`}))));
     else if(view==='ballot') body=ballot(y,z);
     else body=results(y,z,notes)+bmList();
