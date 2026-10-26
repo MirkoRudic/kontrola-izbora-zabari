@@ -1,7 +1,7 @@
 {
  "meta": {
-  "checked": "26.10. 03:02",
-  "processed": 22,
+  "checked": "26.10. 04:02",
+  "processed": 27,
   "stations": 37
  },
  "bm": {
@@ -596,24 +596,24 @@
    }
   },
   "bm17": {
-   "processed": false,
+   "processed": true,
    "voters": 314,
-   "out": 0,
+   "out": 201,
    "outside": null,
-   "valid": 0,
-   "invalid": 0,
+   "valid": 199,
+   "invalid": 2,
    "lists": [
+    112,
+    5,
+    75,
     0,
     0,
     0,
     0,
+    5,
     0,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    2,
     0,
     0,
     0,
@@ -622,7 +622,7 @@
     0,
     0
    ],
-   "at": null,
+   "at": "26.10. 04:02",
    "zap_history": [],
    "alerts": [],
    "status": null
@@ -949,56 +949,69 @@
    "status": null
   },
   "bm26": {
-   "processed": false,
+   "processed": true,
    "voters": 458,
-   "out": 0,
+   "out": 180,
    "outside": null,
-   "valid": 0,
-   "invalid": 0,
+   "valid": 179,
+   "invalid": 1,
    "lists": [
+    88,
+    7,
+    80,
     0,
     0,
     0,
+    1,
     0,
     0,
     0,
+    1,
+    0,
+    0,
+    1,
     0,
     0,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
+    1
    ],
-   "at": null,
-   "zap_history": [],
+   "at": "26.10. 04:02",
+   "zap_history": [
+    {
+     "link": "https://www.rik.parlament.gov.rs/extfile/sr/election_results/823/889/6adebcb185b7c/@ПА26_ebbafaa55f627e53251d27a8fe9616ed.pdf",
+     "sha": "a783c3941416b81d4098c1ac0e1b5b1968f86cdd516bead6e030489f21cb1767",
+     "file": "bm26_a783c39414.pdf",
+     "asset": null,
+     "at": "26.10. 04:02"
+    }
+   ],
    "alerts": [],
-   "status": null
+   "status": {
+    "oboreno": false,
+    "primedbe": null,
+    "napomena": null,
+    "at": "26.10. 04:02"
+   }
   },
   "bm27": {
-   "processed": false,
+   "processed": true,
    "voters": 427,
-   "out": 0,
+   "out": 178,
    "outside": null,
-   "valid": 0,
-   "invalid": 0,
+   "valid": 175,
+   "invalid": 3,
    "lists": [
+    113,
+    5,
+    54,
     0,
     0,
     0,
     0,
+    1,
     0,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    2,
     0,
     0,
     0,
@@ -1007,10 +1020,23 @@
     0,
     0
    ],
-   "at": null,
-   "zap_history": [],
+   "at": "26.10. 04:02",
+   "zap_history": [
+    {
+     "link": "https://www.rik.parlament.gov.rs/extfile/sr/election_results/823/337/6adeba0bac144/@ПА27_df6bb4bcb04635e05224594ee6a89699.pdf",
+     "sha": "dc5bb2e9929e2ee9039fad660504ef097b69d73ef109fb6fdcced0c3b3a28477",
+     "file": "bm27_dc5bb2e992.pdf",
+     "asset": null,
+     "at": "26.10. 04:02"
+    }
+   ],
    "alerts": [],
-   "status": null
+   "status": {
+    "oboreno": false,
+    "primedbe": null,
+    "napomena": "jedan član odbora (A. Lj.) bez potpisa, polje precrtano",
+    "at": "26.10. 04:02"
+   }
   },
   "bm28": {
    "processed": false,
@@ -1122,22 +1148,22 @@
    }
   },
   "bm31": {
-   "processed": false,
+   "processed": true,
    "voters": 286,
-   "out": 0,
+   "out": 151,
    "outside": null,
-   "valid": 0,
+   "valid": 151,
    "invalid": 0,
    "lists": [
+    78,
+    9,
+    59,
     0,
     0,
     0,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    2,
+    3,
     0,
     0,
     0,
@@ -1148,7 +1174,7 @@
     0,
     0
    ],
-   "at": null,
+   "at": "26.10. 04:02",
    "zap_history": [],
    "alerts": [],
    "status": null
@@ -1186,36 +1212,49 @@
    "status": null
   },
   "bm33": {
-   "processed": false,
+   "processed": true,
    "voters": 293,
-   "out": 0,
+   "out": 186,
    "outside": null,
-   "valid": 0,
-   "invalid": 0,
+   "valid": 183,
+   "invalid": 3,
    "lists": [
+    79,
+    19,
+    79,
     0,
     0,
     0,
     0,
+    2,
+    2,
+    0,
+    1,
     0,
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    1,
     0,
     0,
     0,
     0
    ],
-   "at": null,
-   "zap_history": [],
+   "at": "26.10. 04:02",
+   "zap_history": [
+    {
+     "link": "https://www.rik.parlament.gov.rs/extfile/sr/election_results/822/656/6adeb6efd2ab2/@ПА33_330dc58b53e72b987388da854f371a2a.pdf",
+     "sha": "325f64a8c3c6eee8b88e6694b09b56a9d0802ffda3e35129f6d4d4e7415e41ba",
+     "file": "bm33_325f64a8c3.pdf",
+     "asset": null,
+     "at": "26.10. 04:02"
+    }
+   ],
    "alerts": [],
-   "status": null
+   "status": {
+    "oboreno": false,
+    "primedbe": null,
+    "napomena": null,
+    "at": "26.10. 04:02"
+   }
   },
   "bm34": {
    "processed": true,
