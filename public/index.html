@@ -1,4 +1,4 @@
-<!doctype html><html lang="sr-Latn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kontrola izbora Žabari</title><meta name="description" content="Biračka mesta u opštini Žabari: rezultati 2023, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:type" content="website"><meta property="og:url" content="https://kontrola-izbora-zabari.pages.dev/"><meta property="og:title" content="Kontrola izbora – Žabari"><meta property="og:description" content="Biračka mesta, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta name="appv" content="20261027170958"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#960018"><meta name="apple-mobile-web-app-title" content="Kontrola Žabari"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Kontrola izbora Žabari</title>
+<!doctype html><html lang="sr-Latn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Kontrola izbora Žabari</title><meta name="description" content="Biračka mesta u opštini Žabari: rezultati 2023, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:type" content="website"><meta property="og:url" content="https://kontrola-izbora-zabari.pages.dev/"><meta property="og:title" content="Kontrola izbora – Žabari"><meta property="og:description" content="Biračka mesta, birački odbori i rezultati izbora 25. 10. 2026."><meta property="og:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://kontrola-izbora-zabari.pages.dev/og.png?v=3"><meta name="appv" content="20261027180242"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#960018"><meta name="apple-mobile-web-app-title" content="Kontrola Žabari"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Kontrola izbora Žabari</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -875,9 +875,9 @@ function neView(ns){
 const PW1=['Ubacivanje listića','Birački spisak','Paralelni spiskovi','Nepravilnost u prebrojavanju','Kontrolni list','Pritisak na birače','Nasilje / zastrašivanje','Kupovina glasova','Fotografisanje listića','Glasanje bez lične karte','Poništeno glasanje','Red i mir na BM'],PW2=['Porodično glasanje','Narušena tajnost glasanja','Neovlašćena lica na BM','Glasanje uz pomoć / pomagač','Glasanje van BM','Prekid glasanja'];
 const pNorm=x=>x.v==='Agitacija / pritisak na birače'?{...x,v:'Pritisak na birače'}:x;
 const pTez=v=>PW1.includes(v)?'1':PW2.includes(v)?'2':'3',PTL={'1':'Teške','2':'Srednje','3':'Lakše','':'Sve težine'};
-let PF={t:'1',v:'',b:''},PROWS=[],PONE=false;
+let PF={t:'1',v:'',b:'',q:''},PROWS=[],PONE=false;
 function pMatch(row,f){const [n,o,P,U]=row;if(f.b&&String(n)!==String(f.b).replace(/\D/g,''))return null;
-  const E=f.v==='uo'?U:f.v.startsWith('uo:')?U.filter(x=>(x.v||'Ostalo')===f.v.slice(3)):P.filter(x=>{const v=x.v||'Ostalo';return (!f.t||pTez(v)===f.t)&&(!f.v||(f.v==='posm'?x.s==='posm':v===f.v))});return E.length?E:null}
+  const E=f.v==='uo'?U:f.v.startsWith('uo:')?U.filter(x=>(x.v||'Ostalo')===f.v.slice(3)):P.filter(x=>{const v=x.v||'Ostalo';return (f.q||!f.t||pTez(v)===f.t)&&(!f.v||(f.v==='posm'?x.s==='posm':v===f.v))});const Q=f.q?fold(f.q):'';const E2=Q?E.filter(x=>fold((x.v||'')+' '+(x.t||'')).includes(Q)):E;return E2.length?E2:null}
 const plP=n=>{const a=n%10,b=n%100;return a===1&&b!==11?'primedba':a>=2&&a<=4&&(b<12||b>14)?'primedbe':'primedbi'},plZ=n=>{const a=n%10,b=n%100;return a===1&&b!==11?'zapažanje':a>=2&&a<=4&&(b<12||b>14)?'zapažanja':'zapažanja'};
 function plistHtml(){const itA=PROWS.map(row=>{const E=pMatch(row,PF);if(!E)return null;const [n,o]=row,r=zapR(n);
     const h=rawR(n).zap_history||[],zl=(o&&o.link)||(h.length?zapUrl(h[h.length-1]):null)||(r&&r.link),at=(o&&o.at)||(r&&r.at)||'';
@@ -894,6 +894,7 @@ function primView(ns){PONE=ns.length===1;
   const opt=(val,lab,cur)=>`<option value="${esc(val)}"${val===cur?' selected':''}>${esc(lab)}</option>`;
   let bar=`<div class="pfb"><label>Težina<select data-pfk="t">${[...avail,''].map(k=>opt(k,PTL[k]+(k?` (${tz[k]})`:''),PF.t)).join('')}</select></label>`
    +`<label>Vrsta<select data-pfk="v">${opt('','Sve',PF.v)}${vlist.map(v=>opt(v,`${v} (${vs[v]})`,PF.v)).join('')}${npo?opt('posm',`Posmatrači navode (${npo})`,PF.v):''}${nuo?`<optgroup label="AI uočio">`+opt('uo',`Sve uočeno (${nuo})`,PF.v)+Object.keys(uvs).sort((a,b)=>uvs[b]-uvs[a]).map(v=>opt('uo:'+v,`${v} (${uvs[v]})`,PF.v)).join('')+'</optgroup>':''}</select></label>`;
+  bar+=`<label style="grid-column:1/-1">Traži u tekstu primedbi<input type="text" enterkeyhint="search" data-pfk="q" value="${esc(PF.q||'')}" placeholder="npr. kontrolni list, policija, fotografisanje…" autocomplete="off"></label>`;
   return bar+'</div><div id="plist">'+plistHtml()+'</div>'}
 
 function neFly(n){const s=S[n-1],o=oblR(n),r=zapR(n),b=rawR(n),Z=(o&&o.zap)||(r&&r.zap)||(r?{out:r.izasli,valid:r.vazeci,invalid:r.nevazeci}:{});
@@ -903,7 +904,7 @@ function neFly(n){const s=S[n-1],o=oblR(n),r=zapR(n),b=rawR(n),Z=(o&&o.zap)||(r&
   const td=v=>v==null?'—':fmt(+v),df=(a,c)=>a==null||c==null||+a===+c?'–':sgn(+c-+a);
   const el=document.createElement('div');el.className='flyd';el.innerHTML=`<div class="fly" role="dialog" aria-label="RIK i zapisnik"><button class="x" aria-label="Zatvori">✕</button><h4>RIK ≠ zapisnik</h4><div class="sub">BM ${n} · ${esc(s.place)} · Žabari</div>
    <table><thead><tr><th></th><th class="n">Zapisnik</th><th class="n">RIK</th><th class="n">Razlika</th></tr></thead><tbody>${rows.map(([l,a,c])=>`<tr${a!=null&&c!=null&&+a!==+c?' class="bad"':''}><td>${esc(l)}</td><td class="n">${td(a)}</td><td class="n">${td(c)}</td><td class="n">${df(a,c)}</td></tr>`).join('')}</tbody></table>
-   <div class="ft">${zl?link(zl,'Zapisnik (PDF)'):'<span></span>'}<span class="small">${at?'pročitano '+esc(at):''}</span></div></div>`;
+   <div class="ft"><span>${zl?link(zl,'Zapisnik (PDF)'):''}${shI(n,'ne')}</span><span class="small">${at?'pročitano '+esc(at):''}</span></div></div>`;
   el.onclick=e=>{if(e.target===el||e.target.closest('.x'))el.remove()};document.body.appendChild(el)}
 const tsF=ts=>{if(!ts)return '';const d=new Date(ts*1000),p=x=>String(x).padStart(2,'0');return `${d.getDate()}.${d.getMonth()+1}. ${p(d.getHours())}:${p(d.getMinutes())}`};
 const nl=u=>{try{return decodeURI(u||'')}catch(e){return u||''}};
@@ -1001,9 +1002,9 @@ function render(){
                :'';
   let body,hd;
   if(s){const g=sigOf(s.n);hd=header(s.n,s.place,s.name26,true,sigHtml(g),ptabs(g.p,g.ne.length?1:0,nIzm(s.n),g.x?1:0),s.address||s.adr||'');
-    if(tab==='prim') body=primTab(()=>[s.n])+`<div class="mrow">${shBtn}</div>`;
-    else if(tab==='ne') body=primTab(()=>[s.n],1)+`<div class="mrow">${shBtn}</div>`;
-    else if(tab==='pon'&&view==='main') body=ponTabZ([s.n])+`<div class="mrow">${dnBtn}${bibBtn}${shBtn}</div>`;
+    if(tab==='prim') body=primTab(()=>[s.n]);
+    else if(tab==='ne') body=primTab(()=>[s.n],1);
+    else if(tab==='pon'&&view==='main') body=ponTabZ([s.n])+`<div class="mrow">${dnBtn}${bibBtn}</div>`;
     else if(tab==='odb') body=view==='bib'?bibView(s.n):odbTab(()=>provLine()+boardView(s)+latestDoc(s.n)+`<div class="mrow">${bibBtn}${shBtn}</div>`,s.n);
     else if(view==='dn') body=dnView(dnBM(zbm(s.n),zapR(s.n),oblR(s.n),zamR(s.n),resR(s.n)).map(e=>({...e,l2:`BM ${s.n} · ${esc(s.place)}`})));
     else if(view==='ballot') body=ballot(y,z,`<div class="sec"><h3>Zapisnici</h3><div class="links col">${zap26(s.n)}${link(s.y2023.doc,s.y2023.no_rg2?'Dokument 2023 na RIK-u (RG-11)':'Zapisnik 2023 (PDF, RIK)')}</div>${s.y2023.note&&!s.y2023.no_rg2?`<div class="small" style="margin-top:6px">Napomena iz zapisnika 2023: ${esc(s.y2023.note)}</div>`:''}</div>`);
